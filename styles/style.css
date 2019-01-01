@@ -1,17 +1,30 @@
-body{
+body {
     display: flex;
     margin: 0;
 }
-.header{
+
+.header {
+    width: 100%;
+    display: flex;
+    
     background-color: #2d2d2d;
     flex-direction: row;
     
 }
-.box-1, .box-2, .box-3{
+
+.box-1, .box-2, .box-3 {
     padding: 30px;
+    align-items: stretch;
+    
 }
-.box-1 a{
+
+.box-1 a {
     color: white;
     font-size: 48px;
     font-family: cursive;
+    text-decoration: none;
+}
+
+.box-2 {
+    flex-grow: 1;
 }
