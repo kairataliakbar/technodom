@@ -4,20 +4,18 @@
     <meta charset="utf-8"/>
     <title>MyFirstProg</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
-    <script src="js/app.js"></script>
+    <script src="../js/app.js"></script>
   </head>
-  <body>
+  <body onload="loadData()">
     <header>
       <div class="box-1">
         <a href="javaHTML.html">SATU.KZ</a>
       </div>
       <div class="box-2"></div>
       <div class="box-3">
-        <form method="GET" action="./EnterNewLocation/javaHTML.html">  
-          <input type="text" id="login"/>
-          <input type="password" id="password"/>
-          <input type="submit" value="Войти" onclick="result()"/>
-        </form>
+        <div>
+          <span id="textspan"></span>
+        </div>
       </div>
     </header>
     <div class="main">
