@@ -19,3 +19,6 @@ function loadData() {
   textSpan.innerText = login;
 }
 
+function exitButton() {
+  window.location = '../javaHTML.html';
+}
