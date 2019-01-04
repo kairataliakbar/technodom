@@ -54,7 +54,7 @@ header {
   
 }
 
-.firstMenu {
+.first-menu {
   padding: 5px;
   font-family: cursive;
   background-color: white;
@@ -76,4 +76,14 @@ header {
 
 .menu a:hover div {
   background-color: orange;
+}
+
+.right-main {
+  display: flex;
+  flex-direction: row;
+  background-color: #2d2d2d;
+}
+
+.top-right-main {
+
 }
