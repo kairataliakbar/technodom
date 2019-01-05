@@ -117,8 +117,8 @@ header {
 .forvord-container {
   display: flex;
   flex-direction: column;
-  border: 2px solid white;
   padding: 5px 5px 5px 5px;
+  border: 2px solid white;
 }
 
 .forvord-container-img {
@@ -155,6 +155,8 @@ header {
   font-family: cursive;
 }
 
-.container-row-right-main a:hover {
+.forvord-container:hover {
   border: 2px solid orange;
+  opacity:0.5;
+  filter:alpha(opacity=50);
 }
