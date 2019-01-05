@@ -115,12 +115,19 @@ header {
 }
 
 .forvord-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  padding: 5px 5px 5px 5px;
+}
+
+.forvord-container-img {
   width: 235px;
   display: flex;
   flex-direction: column;
 }
 
-.forvord-container img {
+.forvord-container-img img {
   margin: 10px 27.5px 10px 27.5px;
   width: 180px;
   height: 180px;
@@ -134,3 +141,20 @@ header {
   font-family: cursive;
 }
 
+.forvord-container-button {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.summa { 
+  display: flex;
+  justify-content: center;
+  color: orange;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+.container-row-right-main a:hover {
+  border: 2px solid orange;
+}
