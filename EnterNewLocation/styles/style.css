@@ -165,3 +165,19 @@ header {
   opacity:0.5;
   filter:alpha(opacity=50);
 }
+
+footer {
+  margin-left: 115px;
+  margin-right: 115px;
+  display: flex;
+  flex-direction: column;
+  background-color: #4a4a4a;
+}
+
+.footer-box {
+  flex-direction: row;
+}
+
+.f-box-1, .f-box-2, .f-box-3, .f-box-4 {
+  
+} 
