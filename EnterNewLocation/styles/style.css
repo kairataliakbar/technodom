@@ -167,17 +167,48 @@ header {
 }
 
 footer {
-  margin-left: 115px;
-  margin-right: 115px;
+  margin-top: 40px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #4a4a4a;
 }
 
 .footer-box {
+  padding: 40px 115px 40px 115px;
+  display: flex;
   flex-direction: row;
 }
 
 .f-box-1, .f-box-2, .f-box-3, .f-box-4 {
-  
+  display: flex;
+  flex-direction: column;
+  padding-right: 150px;
 } 
+
+.f-box-4 {
+  padding-right: 0px;
+}
+
+.footer-forvord-text {
+  color: orange;
+  font-family: cursive;
+  font-size: 20px;
+  margin-bottom: 13px;
+}
+
+.footer-text {
+  color: white;
+  font-family: cursive;
+  font-size: 15px;
+  margin-bottom: 8px; 
+}
+
+.footer-text a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-text a:hover {
+  border-bottom: 1px solid white;
+}
