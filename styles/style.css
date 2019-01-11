@@ -1,30 +1,236 @@
 body {
-    display: flex;
-    margin: 0;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
 }
 
 header {
-    width: 100%;
-    display: flex;
-    
-    background-color: #2d2d2d;
-    flex-direction: row;
-    
+  display: flex;
+  flex-grow: 1px;
+  background-color: #4a4a4a;
+  flex-direction: row;
+  
 }
 
 .box-1, .box-2, .box-3 {
-    padding: 20px;
-    align-items: stretch;
-    
+  padding: 10px;
+  align-items: stretch;
+  color: white;
+  font-size: 20px;
 }
 
 .box-1 a {
-    color: white;
-    font-size: 46px;
-    font-family: cursive;
-    text-decoration: none;
+  color: white;
+  font-size: 26px;
+  font-family: cursive;
+  text-decoration: none;
+}
+
+.box-1 {
+  padding-left: 115px;
+}
+
+.box-1 a:hover {
+  color: orange;
 }
 
 .box-2 {
-    flex-grow: 1;
+  flex-grow: 1;
+}
+
+.box-3 span {
+  color: white;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+.box-3 {
+  padding-right: 115px;
+  font-family: cursive;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 115px;
+  margin-right: 115px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menu button {
+  display: flex;
+  background-color: orange; /* Green */
+  border: 1px solid rgb(145, 97, 9);
+  border-radius: 0%;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu button:not(:last-child) {
+  border-right: none;
+}
+
+.menu button:hover {
+  background-color: rgb(145, 97, 9);
+}
+
+.right-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-right-main {
+  font-family: cursive;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  background-color: #4a4a4a;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.container-column-right-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-row-right-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-row-right-main a {
+  text-decoration: none
+}
+
+.forvord-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 5px 5px;
+  border: 2px solid white;
+}
+
+.forvord-container-img {
+  width: 235px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forvord-container-img img {
+  margin: 10px 27.5px 10px 27.5px;
+  width: 180px;
+  height: 180px;
+}
+
+.forvord-container-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  font-size: 15px;
+  font-family: cursive;
+}
+
+.forvord-container-button {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.summa { 
+  display: flex;
+  justify-content: center;
+  color: orange;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+.forvord-container:hover {
+  border: 2px solid orange;
+  opacity:0.5;
+  filter:alpha(opacity=50);
+}
+
+footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #4a4a4a;
+}
+
+.footer-box {
+  padding: 40px 115px 40px 115px;
+  display: flex;
+  flex-direction: row;
+}
+
+.f-box-1, .f-box-2, .f-box-3, .f-box-4 {
+  display: flex;
+  flex-direction: column;
+  padding-right: 150px;
+} 
+
+.f-box-4 {
+  padding-right: 0px;
+}
+
+.footer-forvord-text {
+  color: orange;
+  font-family: cursive;
+  font-size: 20px;
+  margin-bottom: 13px;
+}
+
+.footer-text {
+  color: white;
+  font-family: cursive;
+  font-size: 15px;
+  margin-bottom: 8px; 
+}
+
+.footer-text a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-text a:hover {
+  border-bottom: 1px solid white;
+}
+
+.footer-copyright {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  color: white;
+  font-family: cursive;
+  font-size: 13px;
+}
+
+button {
+  background-color: rgb(252, 166, 6);
+  border: 1px solid rgb(170, 112, 3);
+  color: black;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: rgb(145, 97, 9);
+  color: black;
 }
