@@ -46,7 +46,6 @@ header {
 
 .box-3 {
   padding-right: 115px;
-  font-family: cursive;
   font-size: 20px;
   display: flex;
   flex-direction: row;
@@ -68,11 +67,13 @@ header {
 
 .menu button {
   display: flex;
-  background-color: orange; /* Green */
+  height: 60px;
+  background-color: orange;
   border: 1px solid rgb(145, 97, 9);
   border-radius: 0%;
   color: black;
   font-size: 16px;
+  font-family: serif;
   cursor: pointer;
 }
 
@@ -228,6 +229,7 @@ button {
   color: black;
   font-size: 16px;
   border-radius: 3px;
+  font-family: serif;
 }
 
 button:hover {
