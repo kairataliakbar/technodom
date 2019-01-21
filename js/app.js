@@ -1,24 +1,25 @@
-var LOGIN_NAME = "loginName";
-
-function result() {
-  var login = document.getElementById("login").value;
-  var password = document.getElementById("password").value;
-
-  if (login == "Kairat" && password == "garnier12") {
-    localStorage.setItem(LOGIN_NAME, login);
-    alert("Добро пожаловать " + login);
-    window.location = 'EnterNewLocation/javaHTML.html';
-  } else {
-    alert("Неверный логин или пароль");
+window.onload = function () {
+  if(sessionStorage.getItem('display') !== null){
+    var display = sessionStorage.getItem('display');
+    document.getElementById("modalWin").style.display = display;
   }
 }
 
-function loadData() {
-  var textSpan = document.getElementById("textspan");
-  var login = localStorage.getItem(LOGIN_NAME);
-  textSpan.innerText = login;
+function buttonClick() {
+  console.log("work");
+  document.getElementById("modalWin").style.display = "block";
+  sessionStorage.setItem('display', 'block');
 }
 
-function exitButton() {
-  window.location = '../javaHTML.html';
+function closeClick() {
+  document.getElementById('modalWin').style.display = 'none';
+  sessionStorage.setItem('display', 'none');
+}
+
+window.onclick = function(event) {
+  var modal = document.getElementById('modalWin');
+  if (event.target == modal) {
+    document.getElementById('modalWin').style.display = 'none';
+    sessionStorage.setItem('display', 'none');
+  }
 }
