@@ -41,7 +41,6 @@ function testPassword(password){
 }
 
 function testEmail(email) {
-  debugger;
   for(var i = 0; i < email.length; i++) {
     if(email[i] == '@'){
       return true;
@@ -62,4 +61,18 @@ function registrModalClick() {
     localStorage.setItem('login', loginWin);
     localStorage.setItem('password', passwordWin);
   } 
+}
+
+function websiteEntry() {
+  var login = document.getElementById("login").value;
+  var password = document.getElementById("password").value;
+  if(login === localStorage.getItem('login') && password === localStorage.getItem('password')) {
+    innerWebsite(login);
+  }else(
+    alert("Неверынй логин или пороль!!!")
+  )
+}
+
+function innerWebsite(login) {
+  
 }
