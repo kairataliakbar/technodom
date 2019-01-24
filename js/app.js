@@ -1,12 +1,17 @@
 window.onload = function () {
-  if(sessionStorage.getItem('display') !== null){
+  if(localStorage.getItem('loginEntry') !== null){
+    document.getElementById("formEntry").style.display = "none";
+    document.getElementById("formExit").style.display = "block";
+  }if(localStorage.getItem('loginEntry') === null){
+    document.getElementById("formEntry").style.display = "block";
+    document.getElementById("formExit").style.display = "none";
+  }if(sessionStorage.getItem('display') !== null){
     var display = sessionStorage.getItem('display');
     document.getElementById("modalWin").style.display = display;
   }
 }
 
 function registrClick() {
-  console.log("work");
   document.getElementById("modalWin").style.display = "block";
   sessionStorage.setItem('display', 'block');
 }
@@ -60,6 +65,9 @@ function registrModalClick() {
   if(resultLogin == true && resultPassword == true && resultEmail == true) {
     localStorage.setItem('login', loginWin);
     localStorage.setItem('password', passwordWin);
+    innerWebsite();
+    closeClick();
+    localStorage.setItem('loginEntry', loginWin);
   } 
 }
 
@@ -67,12 +75,23 @@ function websiteEntry() {
   var login = document.getElementById("login").value;
   var password = document.getElementById("password").value;
   if(login === localStorage.getItem('login') && password === localStorage.getItem('password')) {
-    innerWebsite(login);
-  }else(
-    alert("Неверынй логин или пороль!!!")
+    localStorage.setItem('loginEntry', login);
+    innerWebsite();
+    }else(
+    alert("Неверный логин или пороль!!!")
   )
 }
 
-function innerWebsite(login) {
-  
+function innerWebsite() {
+  debugger;
+  var spanText = document.getElementById("textSpan");
+  var login = localStorage.getItem('loginEntry');
+  spanText.innerText = login;
+  console.log(login);
+}
+
+function exitClick() {
+  localStorage.removeItem('loginEntry');
+  document.getElementById("formEntry").style.display = "block";
+  document.getElementById("formExit").style.display = "none";
 }
