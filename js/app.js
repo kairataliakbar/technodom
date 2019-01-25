@@ -2,6 +2,8 @@ window.onload = function () {
   if(localStorage.getItem('loginEntry') !== null){
     document.getElementById("formEntry").style.display = "none";
     document.getElementById("formExit").style.display = "block";
+    var spanText = document.getElementById("textSpan");
+    spanText.innerText = localStorage.getItem('loginEntry');
   }if(localStorage.getItem('loginEntry') === null){
     document.getElementById("formEntry").style.display = "block";
     document.getElementById("formExit").style.display = "none";
@@ -65,7 +67,6 @@ function registrModalClick() {
   if(resultLogin == true && resultPassword == true && resultEmail == true) {
     localStorage.setItem('login', loginWin);
     localStorage.setItem('password', passwordWin);
-    innerWebsite();
     closeClick();
     localStorage.setItem('loginEntry', loginWin);
   } 
@@ -76,18 +77,9 @@ function websiteEntry() {
   var password = document.getElementById("password").value;
   if(login === localStorage.getItem('login') && password === localStorage.getItem('password')) {
     localStorage.setItem('loginEntry', login);
-    innerWebsite();
     }else(
     alert("Неверный логин или пороль!!!")
   )
-}
-
-function innerWebsite() {
-  debugger;
-  var spanText = document.getElementById("textSpan");
-  var login = localStorage.getItem('loginEntry');
-  spanText.innerText = login;
-  console.log(login);
 }
 
 function exitClick() {
