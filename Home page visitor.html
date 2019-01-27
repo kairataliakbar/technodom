@@ -19,9 +19,11 @@
           <button type="submit" id="inner" onclick="websiteEntry()">Войти</button>
           <button id="register" class="register" onclick="registrClick()">Регистрация</button>
         </form>
-        <div calss="formExit" id="formExit">Здраствуйте, 
-          <span id="textSpan"></span>
-          <button onclick="exitClick()">Выйти</button>
+        <div calss="formExit" id="formExit">
+          <div class="profil-container"  onclick="exitClick()">
+              <img src="img/profil_img.png" alt="profil" width="20px" height="20px"/>
+              <span id="textSpan"></span>
+          </div>
         </div>
       </div>
     </header>
