@@ -29,6 +29,10 @@ window.onclick = function(event) {
     document.getElementById('modalWin').style.display = 'none';
     sessionStorage.setItem('display', 'none');
   }
+  var profilMenu = document.getElementById('profilMenu');
+  if(event.target == profilMenu) {
+    document.getElementById('profilMenu').style.display = 'none';
+  }
 }
 
 function testLogin(login){
@@ -86,4 +90,10 @@ function exitClick() {
   localStorage.removeItem('loginEntry');
   document.getElementById("formEntry").style.display = "block";
   document.getElementById("formExit").style.display = "none";
+  document.getElementById('profilMenu').style.display = 'none';
 }
+
+function profilMenuContainer() {
+  document.getElementById("profilMenu").style.display = "block";
+}
+
