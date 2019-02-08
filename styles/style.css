@@ -120,6 +120,11 @@ header {
   background-color: rgb(145, 97, 9);
 }
 
+.profil-menu-container-3 a {
+  color: black;
+  text-decoration: none;
+}
+
 .main {
   display: flex;
   flex-direction: column;

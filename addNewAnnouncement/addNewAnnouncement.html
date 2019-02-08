@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>MyFirstProg-addNewAnnouncement</title>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
+    <script src="../js/app.js"></script>
+</head>
+<body>
+    <header>
+      <div class="box-1">
+        <a href="javaHTML.html">SATU.KZ</a>
+      </div>
+      <div class="box-2"></div>
+      <div class="box-3">
+        <form id="formEntry">  
+          <input type="text" id="login"/>
+          <input type="password" id="password"/>
+          <button type="submit" id="inner" onclick="websiteEntry()">Войти</button>
+          <button id="register" class="register" onclick="registrClick()">Регистрация</button>
+        </form>
+        <div calss="formExit" id="formExit">
+          <div class="profil-container" onclick="profilMenuContainer()">
+            <img src="../img/profil_img.png" alt="profil" width="20px" height="20px"/>
+            <span id="textSpan"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="profil-menu-container" id="profilMenu">
+      <div class="menu-container" id="menuContainer">
+        <div class="profil-menu-container-1">Личные данные</div>
+        <div class="profil-menu-container-2" id="profilMenuContainer2">Корзина</div>
+        <div class="profil-menu-container-3" id="profilMenuContainer3"><a href="addNewAnnouncement/addNewAnnouncement.html">Добавить объявление</a></div>
+        <div class="profil-menu-container-4" onclick="exitClick()">Выйти</div>
+      </div>
+    </div>
+  </body>
+</html>
