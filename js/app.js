@@ -10,6 +10,10 @@ window.onload = function () {
   }if(sessionStorage.getItem('display') !== null){
     var display = sessionStorage.getItem('display');
     document.getElementById("modalWin").style.display = display;
+  }if(localStorage.getItem("adminEntry") === 'admin') {
+    document.getElementById("profilMenuContainer2").style.display = 'none';
+  }if(localStorage.getItem("adminEntry") !== 'admin') {
+    document.getElementById("profilMenuContainer3").style.display = 'none';
   }
 }
 
@@ -79,15 +83,22 @@ function registrModalClick() {
 function websiteEntry() {
   var login = document.getElementById("login").value;
   var password = document.getElementById("password").value;
-  if(login === localStorage.getItem('login') && password === localStorage.getItem('password')) {
+  if(login === localStorage.getItem('login') && password === localStorage.getItem('password') || login === 'admin' && password === 'qwe123') {
     localStorage.setItem('loginEntry', login);
-    }else(
+    if(login === 'admin') {
+      localStorage.setItem('adminEntry', 'admin');
+      document.getElementById("profilMenuContainer2").style.display = 'none';
+    }else { 
+      document.getElementById("profilMenuContainer3").style.display = 'none';
+    }
+  }else(
     alert("Неверный логин или пороль!!!")
   )
 }
 
 function exitClick() {
   localStorage.removeItem('loginEntry');
+  localStorage.removeItem('adminEntry');
   document.getElementById("formEntry").style.display = "block";
   document.getElementById("formExit").style.display = "none";
   document.getElementById('profilMenu').style.display = 'none';

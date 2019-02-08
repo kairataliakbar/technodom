@@ -102,7 +102,7 @@ header {
   border: 1px solid rgb(145, 97, 9);
 }
 
-.profil-menu-container-1, .profil-menu-container-2, .profil-menu-container-3 {
+.profil-menu-container-1, .profil-menu-container-2, .profil-menu-container-3, .profil-menu-container-4 {
   height: 24px;
   margin: 2px 2px 2px 2px;
   border: 1px solid orange;
@@ -115,7 +115,7 @@ header {
   justify-content: center;
 } 
 
-.profil-menu-container-1:hover, .profil-menu-container-2:hover, .profil-menu-container-3:hover {
+.profil-menu-container-1:hover, .profil-menu-container-2:hover, .profil-menu-container-3:hover, .profil-menu-container-4:hover {
   border: 1px solid rgb(145, 97, 9);
   background-color: rgb(145, 97, 9);
 }
@@ -232,7 +232,7 @@ header {
 
 .forvord-container:hover {
   border: 2px solid orange;
-  opacity:0.5;
+  opacity:0.65;
   filter:alpha(opacity=50);
 }
 
