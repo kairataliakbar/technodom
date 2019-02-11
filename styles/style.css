@@ -379,3 +379,52 @@ button:hover {
   height: 32px;
   width: 250px;
 }
+
+.top-main {
+  margin-top: 10px;
+  font-family: cursive;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  background-color: #4a4a4a;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.body-main {
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 1183px;
+  padding: 5px 5px 5px 5px;
+}
+
+.left-tc {
+  display: flex;
+  justify-content: flex-end;
+  width: 350px;
+  padding-top: 5px;
+  padding-right: 18px;
+  font-family: cursive;
+  color: black;
+  font-size: 18px;
+}
+
+.right-tc {
+  height: 36px;
+}
+
+.right-tc input {
+  font-size: 16px;
+  height: 22px;
+  width: 600px;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  padding: 6px 7px;
+}
