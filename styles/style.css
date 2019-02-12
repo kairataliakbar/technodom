@@ -417,7 +417,7 @@ button:hover {
   height: 36px;
 }
 
-.right-tc input {
+.textHeader {
   font-size: 16px;
   height: 22px;
   width: 600px;
@@ -431,6 +431,16 @@ button:hover {
   font-size: 16px;
   height: 36px;
   width: 300px;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  padding: 6px 7px;
+}
+
+.textPrices {
+  font-size: 16px;
+  height: 22px;
+  width: 100px;
   background: #fff;
   border: 1px solid #d1d1d1;
   border-radius: 6px;
