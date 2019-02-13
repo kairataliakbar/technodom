@@ -414,10 +414,9 @@ button:hover {
 }
 
 .right-tc {
-  height: 36px;
 }
 
-.textHeader {
+.text-header {
   font-size: 16px;
   height: 22px;
   width: 600px;
@@ -437,10 +436,31 @@ button:hover {
   padding: 6px 7px;
 }
 
-.textPrices {
+.text-prices {
   font-size: 16px;
   height: 22px;
   width: 100px;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  padding: 6px 7px;
+}
+
+.text-area {
+  font-family: sans-serif;
+  font-size: 16px;
+  height: 200px;
+  width: 500px;
+  background: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  padding: 6px 7px;
+}
+
+.cod-product {
+  font-size: 16px;
+  height: 22px;
+  width: 300px;
   background: #fff;
   border: 1px solid #d1d1d1;
   border-radius: 6px;
