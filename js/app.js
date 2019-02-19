@@ -108,13 +108,10 @@ function profilMenuContainer() {
   document.getElementById("profilMenu").style.display = "block";
 }
 
-
 function addImage() {
-  
   reader = new FileReader();
   reader.onload = function(e) {
     document.getElementById("result").src = e.target.result;
-    
   }
   document.getElementById("addImg").addEventListener('change', loadFileImg);
 
@@ -122,4 +119,8 @@ function addImage() {
     var file = document.querySelector("#addImg").files[0];
     reader.readAsDataURL(file);
   }
+}
+
+function addAnnouncement() {
+  
 }

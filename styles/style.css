@@ -396,7 +396,6 @@ button:hover {
 .title-container {
   display: flex;
   flex-direction: row;
-  width: 1183px;
   margin-top: 12px;
   margin-bottom: 12px;
   padding: 5px 5px 5px 5px;
@@ -411,9 +410,6 @@ button:hover {
   font-family: cursive;
   color: black;
   font-size: 18px;
-}
-
-.right-tc {
 }
 
 .text-header {
@@ -476,4 +472,28 @@ button:hover {
   display: flex;
   width: 180px;
   height: 180px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 5px 10% 5px 5px;
+}
+
+.button-tc {
+  height: 50px;
+  width: 200px;
+  background-color: orange;
+  border: 2px solid rgb(145, 97, 9);
+  border-radius: 6px;
+  color: black;
+  font-size: 20px;
+  font-family: cursive;
+  cursor: pointer;
+}
+
+.button-tc:hover {
+  background-color: rgb(145, 97, 9);
 }
