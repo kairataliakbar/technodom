@@ -466,3 +466,14 @@ button:hover {
   border-radius: 6px;
   padding: 6px 7px;
 }
+
+.add-img-file {
+  padding-top: 8px;
+}
+
+#result {
+  padding-top: 10px;
+  display: flex;
+  width: 180px;
+  height: 180px;
+}
