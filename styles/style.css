@@ -159,13 +159,13 @@ header {
   background-color: rgb(145, 97, 9);
 }
 
-.right-main {
+.bottom-main {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.top-right-main {
+.top-bottom-main {
   font-family: cursive;
   padding-left: 20px;
   padding-top: 5px;
@@ -177,20 +177,15 @@ header {
   border-radius: 5px;
 }
 
-.container-column-right-main {
-  width: 100%;
+.container-bottom-main {
+  width: 996px;
   display: flex;
-  flex-direction: column;
-}
-
-.container-row-right-main {
-  width: 100%;
-  display: flex;
+  align-self: center;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.container-row-right-main a {
+.container-bottom-main a {
   text-decoration: none
 }
 
