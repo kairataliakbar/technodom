@@ -1,5 +1,7 @@
 window.onload = function () {
-  if(localStorage.getItem('loginEntry') !== null){
+  if(JSON.parse(localStorage.getItem("announcement")) !== null){
+    addAnnouncement();
+  }if(localStorage.getItem('loginEntry') !== null){
     document.getElementById("formEntry").style.display = "none";
     document.getElementById("formExit").style.display = "block";
     var spanText = document.getElementById("textSpan");
@@ -122,5 +124,62 @@ function addImage() {
 }
 
 function addAnnouncement() {
+  var announcement = JSON.parse(localStorage.getItem("announcement"));
   
+  var headline = announcement.announcementHeadline;
+  var codProduct = announcement.announcementCodProduct;
+  var heading = announcement.announcementHeading;
+  var pricesProduct = announcement.announcementPricesProduct;
+  var textArea = announcement.announcementTextArea;
+  var imgSrc = announcement.announcementImgSrc; 
+  
+  var divForvordContainer = document.createElement("div");
+  divForvordContainer.className = "forvord-container";
+  var divForvordContainerImg = document.createElement("div");
+  divForvordContainerImg.className = "forvord-container-img";
+  var imgForvordContainer = document.createElement("img");
+  imgForvordContainer.src = imgSrc;
+  var divForvordContainerText = document.createElement("div");
+  divForvordContainerText.className = "forvord-container-text";
+  divForvordContainerText.innerHTML = headline;
+  var divForvordContainerButton = document.createElement("div");
+  divForvordContainerButton.className = "forvord-container-button";
+  var divPrices = document.createElement("div");
+  divPrices.className = "summa";
+  divPrices.innerHTML = pricesProduct;
+  var buttonInGarbage = document.createElement("button");
+  buttonInGarbage.innerHTML = "В корзину";
+  var button = document.createElement("button");
+  button.innerHTML = "Добавить в мои желания";
+
+  containerBottomMain.appendChild(divForvordContainer);
+  divForvordContainer.appendChild(divForvordContainerImg);
+  divForvordContainerImg.appendChild(imgForvordContainer);
+  divForvordContainerImg.appendChild(divForvordContainerText);
+  divForvordContainer.appendChild(divForvordContainerButton);
+  divForvordContainerButton.appendChild(divPrices);
+  divForvordContainerButton.appendChild(buttonInGarbage);
+  divForvordContainerButton.appendChild(button);
+  
+  localStorage.removeItem("announcement");
+}
+
+function newAnnouncement() {
+  var headline = document.getElementById("titleText").value;
+  var codProduct = document.getElementById("codProduct").value;
+  var heading = document.getElementById("headingTitleContainer").value;
+  var pricesProduct = document.getElementById("pricesText").value;
+  var textArea = document.getElementById("textArea").value;
+  var imgSrc = document.getElementById("result").src;
+  
+  var announcement = {
+    announcementHeadline: headline,
+    announcementCodProduct: codProduct,
+    announcementHeading: heading,
+    announcementPricesProduct: pricesProduct,
+    announcementTextArea: textArea,
+    announcementImgSrc: imgSrc
+  };
+  localStorage.setItem("announcement", JSON.stringify(announcement));
+  location = "../Home page visitor.html";
 }

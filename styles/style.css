@@ -194,6 +194,7 @@ header {
   flex-direction: column;
   padding: 5px 5px 5px 5px;
   border: 2px solid white;
+  cursor: pointer;
 }
 
 .forvord-container-img {
