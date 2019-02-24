@@ -161,7 +161,6 @@ function addAnnouncement() {
   divForvordContainerButton.appendChild(buttonInGarbage);
   divForvordContainerButton.appendChild(button);
   
-  localStorage.removeItem("announcement");
 }
 
 function newAnnouncement() {
@@ -180,6 +179,7 @@ function newAnnouncement() {
     announcementTextArea: textArea,
     announcementImgSrc: imgSrc
   };
+
   localStorage.setItem("announcement", JSON.stringify(announcement));
   location = "../Home page visitor.html";
 }
