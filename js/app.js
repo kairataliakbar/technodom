@@ -1,7 +1,7 @@
+var array = new Array();
+
 window.onload = function () {
-  if(JSON.parse(localStorage.getItem("announcement")) !== null){
-    addAnnouncement();
-  }if(localStorage.getItem('loginEntry') !== null){
+  if(localStorage.getItem('loginEntry') !== null){
     document.getElementById("formEntry").style.display = "none";
     document.getElementById("formExit").style.display = "block";
     var spanText = document.getElementById("textSpan");
@@ -16,6 +16,12 @@ window.onload = function () {
     document.getElementById("profilMenuContainer2").style.display = 'none';
   }if(localStorage.getItem("adminEntry") !== 'admin') {
     document.getElementById("profilMenuContainer3").style.display = 'none';
+  }if(JSON.parse(localStorage.getItem("array")) !== null){
+    var announcementArray = JSON.parse(localStorage.getItem("array"));
+    for(var i = 0; i < announcementArray.length; i++){
+      array.push(announcementArray[i]);
+    }
+    addAnnouncement();
   }
 }
 
@@ -124,43 +130,44 @@ function addImage() {
 }
 
 function addAnnouncement() {
-  var announcement = JSON.parse(localStorage.getItem("announcement"));
-  
-  var headline = announcement.announcementHeadline;
-  var codProduct = announcement.announcementCodProduct;
-  var heading = announcement.announcementHeading;
-  var pricesProduct = announcement.announcementPricesProduct;
-  var textArea = announcement.announcementTextArea;
-  var imgSrc = announcement.announcementImgSrc; 
-  
-  var divForvordContainer = document.createElement("div");
-  divForvordContainer.className = "forvord-container";
-  var divForvordContainerImg = document.createElement("div");
-  divForvordContainerImg.className = "forvord-container-img";
-  var imgForvordContainer = document.createElement("img");
-  imgForvordContainer.src = imgSrc;
-  var divForvordContainerText = document.createElement("div");
-  divForvordContainerText.className = "forvord-container-text";
-  divForvordContainerText.innerHTML = headline;
-  var divForvordContainerButton = document.createElement("div");
-  divForvordContainerButton.className = "forvord-container-button";
-  var divPrices = document.createElement("div");
-  divPrices.className = "summa";
-  divPrices.innerHTML = pricesProduct;
-  var buttonInGarbage = document.createElement("button");
-  buttonInGarbage.innerHTML = "В корзину";
-  var button = document.createElement("button");
-  button.innerHTML = "Добавить в мои желания";
+  var announcement = JSON.parse(localStorage.getItem("array"));
+  for(i = 0; i < announcement.length; i++){
+    indexArray = i;
+    var headline = announcement[i].announcementHeadline;
+    var codProduct = announcement[i].announcementCodProduct;
+    var heading = announcement[i].announcementHeading;
+    var pricesProduct = announcement[i].announcementPricesProduct;
+    var textArea = announcement[i].announcementTextArea;
+    var imgSrc = announcement[i].announcementImgSrc; 
+    
+    var divForvordContainer = document.createElement("div");
+    divForvordContainer.className = "forvord-container";
+    var divForvordContainerImg = document.createElement("div");
+    divForvordContainerImg.className = "forvord-container-img";
+    var imgForvordContainer = document.createElement("img");
+    imgForvordContainer.src = imgSrc;
+    var divForvordContainerText = document.createElement("div");
+    divForvordContainerText.className = "forvord-container-text";
+    divForvordContainerText.innerHTML = headline;
+    var divForvordContainerButton = document.createElement("div");
+    divForvordContainerButton.className = "forvord-container-button";
+    var divPrices = document.createElement("div");
+    divPrices.className = "summa";
+    divPrices.innerHTML = pricesProduct;
+    var buttonInGarbage = document.createElement("button");
+    buttonInGarbage.innerHTML = "В корзину";
+    var button = document.createElement("button");
+    button.innerHTML = "Добавить в мои желания";
 
-  containerBottomMain.appendChild(divForvordContainer);
-  divForvordContainer.appendChild(divForvordContainerImg);
-  divForvordContainerImg.appendChild(imgForvordContainer);
-  divForvordContainerImg.appendChild(divForvordContainerText);
-  divForvordContainer.appendChild(divForvordContainerButton);
-  divForvordContainerButton.appendChild(divPrices);
-  divForvordContainerButton.appendChild(buttonInGarbage);
-  divForvordContainerButton.appendChild(button);
-  
+    containerBottomMain.appendChild(divForvordContainer);
+    divForvordContainer.appendChild(divForvordContainerImg);
+    divForvordContainerImg.appendChild(imgForvordContainer);
+    divForvordContainerImg.appendChild(divForvordContainerText);
+    divForvordContainer.appendChild(divForvordContainerButton);
+    divForvordContainerButton.appendChild(divPrices);
+    divForvordContainerButton.appendChild(buttonInGarbage);
+    divForvordContainerButton.appendChild(button);
+  }
 }
 
 function newAnnouncement() {
@@ -180,6 +187,7 @@ function newAnnouncement() {
     announcementImgSrc: imgSrc
   };
 
-  localStorage.setItem("announcement", JSON.stringify(announcement));
+  array.push(announcement);
+  localStorage.setItem("array", JSON.stringify(array));
   location = "../Home page visitor.html";
 }
