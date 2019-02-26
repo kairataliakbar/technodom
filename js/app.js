@@ -1,24 +1,24 @@
 var array = new Array();
 
 window.onload = function () {
-  if(localStorage.getItem('loginEntry') !== null){
+  if(localStorage.getItem('loginEntry') !== null) {
     document.getElementById("formEntry").style.display = "none";
     document.getElementById("formExit").style.display = "block";
     var spanText = document.getElementById("textSpan");
     spanText.innerText = localStorage.getItem('loginEntry');
-  }if(localStorage.getItem('loginEntry') === null){
+  }if(localStorage.getItem('loginEntry') === null) {
     document.getElementById("formEntry").style.display = "block";
     document.getElementById("formExit").style.display = "none";
-  }if(sessionStorage.getItem('display') !== null){
+  }if(sessionStorage.getItem('display') !== null) {
     var display = sessionStorage.getItem('display');
     document.getElementById("modalWin").style.display = display;
   }if(localStorage.getItem("adminEntry") === 'admin') {
     document.getElementById("profilMenuContainer2").style.display = 'none';
   }if(localStorage.getItem("adminEntry") !== 'admin') {
     document.getElementById("profilMenuContainer3").style.display = 'none';
-  }if(JSON.parse(localStorage.getItem("array")) !== null){
+  }if(JSON.parse(localStorage.getItem("array")) !== null) {
     var announcementArray = JSON.parse(localStorage.getItem("array"));
-    for(var i = 0; i < announcementArray.length; i++){
+    for(var i = 0; i < announcementArray.length; i++) {
       array.push(announcementArray[i]);
     }
     addAnnouncement();
