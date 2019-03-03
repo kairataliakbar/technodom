@@ -133,15 +133,20 @@ function addAnnouncement() {
   var announcement = JSON.parse(localStorage.getItem("array"));
   for(i = 0; i < announcement.length; i++){
     indexArray = i;
+    addForvordContainerNumber =+ 1;
     var headline = announcement[i].announcementHeadline;
     var codProduct = announcement[i].announcementCodProduct;
     var heading = announcement[i].announcementHeading;
     var pricesProduct = announcement[i].announcementPricesProduct;
     var textArea = announcement[i].announcementTextArea;
     var imgSrc = announcement[i].announcementImgSrc; 
-    
+      
     var divForvordContainer = document.createElement("div");
     divForvordContainer.className = "forvord-container";
+    divForvordContainer.count = codProduct;
+    divForvordContainer.onclick = function () {
+      productPageIF(this.count);
+    };
     var divForvordContainerImg = document.createElement("div");
     divForvordContainerImg.className = "forvord-container-img";
     var imgForvordContainer = document.createElement("img");
@@ -190,4 +195,36 @@ function newAnnouncement() {
   array.push(announcement);
   localStorage.setItem("array", JSON.stringify(array));
   location = "../Home page visitor.html";
+}
+
+function productPageIF(codProduct) {
+  debugger;
+  for(var i = 0; i < array.length; i++) {
+    if(codProduct === array[i].announcementCodProduct){
+      console.log(localStorage.getItem("arrayProduct"));
+      if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct" === undefined)) {
+        localStorage.setItem("arrayProduct", JSON.stringify(array[i]));
+        location = "./pageProduct/pageProduct.html";
+      }else {
+        localStorage.removeItem("arrayProduct");
+        localStorage.setItem("arrayProduct", JSON.stringify(array[i]));
+        location = "./pageProduct/pageProduct.html";
+      }
+    }
+  }
+}
+
+function productPage() {
+  debugger;
+  var codProduct = JSON.parse(localStorage.getItem("arrayProduct"));
+
+  var imageProduct = codProduct.announcementImgSrc;
+  var headlineProduct = codProduct.announcementHeadline;
+  var headingProduct = codProduct.announcementHeading;
+  var pricesProduct = codProduct.announcementPricesProduct;
+  var codProductProduct = codProduct.announcementCodProduct;
+  var textAreaProduct = codProduct.announcementTextArea;
+  
+  document.getElementById("productImageId").innerHTML.src = imageProduct;
+
 }
