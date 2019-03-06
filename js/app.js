@@ -229,5 +229,7 @@ function productPage() {
   var textAreaProduct = codProduct.announcementTextArea;
   
   document.getElementById("productImageId").src = imageProduct;
-
+  document.getElementById("headLineContainer").innerText = headlineProduct;
+  document.getElementById("pricesProductContainer").innerText = pricesProduct;
+  document.getElementById("textAreaContainer").innerText = textAreaProduct;
 }
