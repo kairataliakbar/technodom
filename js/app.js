@@ -1,6 +1,6 @@
 var array = new Array();
 
-window.onload = function () {
+window.onload = function windowOnload() {
   if(localStorage.getItem('loginEntry') !== null) {
     document.getElementById("formEntry").style.display = "none";
     document.getElementById("formExit").style.display = "block";
@@ -24,6 +24,10 @@ window.onload = function () {
     addAnnouncement();
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  productPage();
+});
 
 function registrClick() {
   document.getElementById("modalWin").style.display = "block";
@@ -198,16 +202,16 @@ function newAnnouncement() {
 }
 
 function productPageIF(codProduct) {
-  debugger;
   for(var i = 0; i < array.length; i++) {
     if(codProduct === array[i].announcementCodProduct){
-      console.log(localStorage.getItem("arrayProduct"));
-      if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct" === undefined)) {
+      if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct") === undefined) {
         localStorage.setItem("arrayProduct", JSON.stringify(array[i]));
+        localStorage.setItem("pageProductEntry", true);
         location = "./pageProduct/pageProduct.html";
       }else {
         localStorage.removeItem("arrayProduct");
         localStorage.setItem("arrayProduct", JSON.stringify(array[i]));
+        localStorage.setItem("pageProductEntry", true);
         location = "./pageProduct/pageProduct.html";
       }
     }
@@ -215,7 +219,6 @@ function productPageIF(codProduct) {
 }
 
 function productPage() {
-  debugger;
   var codProduct = JSON.parse(localStorage.getItem("arrayProduct"));
 
   var imageProduct = codProduct.announcementImgSrc;
@@ -225,6 +228,6 @@ function productPage() {
   var codProductProduct = codProduct.announcementCodProduct;
   var textAreaProduct = codProduct.announcementTextArea;
   
-  document.getElementById("productImageId").innerHTML.src = imageProduct;
+  document.getElementById("productImageId").src = imageProduct;
 
 }
