@@ -183,7 +183,7 @@ function newAnnouncement() {
   var headline = document.getElementById("titleText").value;
   var codProduct = document.getElementById("codProduct").value;
   var heading = document.getElementById("headingTitleContainer").value;
-  var pricesProduct = document.getElementById("pricesText").value;
+  var pricesProduct = document.getElementById("pricesText").value + "₸";
   var textArea = document.getElementById("textArea").value;
   var imgSrc = document.getElementById("result").src;
   
@@ -198,7 +198,7 @@ function newAnnouncement() {
 
   array.push(announcement);
   localStorage.setItem("array", JSON.stringify(array));
-  location = "../Home page visitor.html";
+  location = "Home page visitor.html";
 }
 
 function productPageIF(codProduct) {

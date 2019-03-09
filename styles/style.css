@@ -480,7 +480,8 @@ button:hover {
 
 .button-tc {
   height: 50px;
-  width: 200px;
+  padding: 0px 20px 0px 20px;
+  margin-right: 10px;
   background-color: orange;
   border: 2px solid rgb(145, 97, 9);
   border-radius: 6px;
