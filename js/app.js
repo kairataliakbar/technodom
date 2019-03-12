@@ -16,14 +16,24 @@ window.onload = function windowOnload() {
     document.getElementById("profilMenuContainer2").style.display = 'none';
   }if(localStorage.getItem("adminEntry") !== 'admin') {
     document.getElementById("profilMenuContainer3").style.display = 'none';
-  }if(JSON.parse(localStorage.getItem("array")) !== null) {
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if(localStorage.getItem("adminEntry") === 'admin') {
+    document.getElementById("buttonAdminProduct").style.display = 'block';
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  if(JSON.parse(localStorage.getItem("array")) !== null) {
     var announcementArray = JSON.parse(localStorage.getItem("array"));
     for(var i = 0; i < announcementArray.length; i++) {
       array.push(announcementArray[i]);
     }
     addAnnouncement();
   }
-}
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   productPage();
@@ -198,7 +208,7 @@ function newAnnouncement() {
 
   array.push(announcement);
   localStorage.setItem("array", JSON.stringify(array));
-  location = "Home page visitor.html";
+  location = "../Home page visitor.html";
 }
 
 function productPageIF(codProduct) {
@@ -232,4 +242,19 @@ function productPage() {
   document.getElementById("headLineContainer").innerText = headlineProduct;
   document.getElementById("pricesProductContainer").innerText = pricesProduct;
   document.getElementById("textAreaContainer").innerText = textAreaProduct;
+}
+
+function removeAnnouncement() {
+  if(localStorage.getItem("adminEntry") === 'admin') {
+    var product = JSON.parse(localStorage.getItem("arrayProduct"));
+    var array = JSON.parse(localStorage.getItem("array"));
+    var newArray = [];
+    for(var i = 0; i < array.length; i++) {
+      if(product.announcementCodProduct !== array[i].announcementCodProduct) {
+        newArray.push(array[i]);
+      }
+    }
+    localStorage.setItem("array", JSON.stringify(newArray));
+    location = "../Home page visitor.html";
+  }
 }

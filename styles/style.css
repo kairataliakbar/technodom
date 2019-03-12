@@ -553,3 +553,13 @@ button:hover {
   font-size: 16px;
   font-family: sans-serif;
 }
+
+.button-admin-product {
+  display: none;
+}
+
+.button-admin-product button {
+  padding: 5px 10px 5px 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+}
