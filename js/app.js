@@ -1,4 +1,4 @@
-var array = new Array();
+array = [];
 
 window.onload = function windowOnload() {
   if(localStorage.getItem('loginEntry') !== null) {
@@ -16,6 +16,8 @@ window.onload = function windowOnload() {
     document.getElementById("profilMenuContainer2").style.display = 'none';
   }if(localStorage.getItem("adminEntry") !== 'admin') {
     document.getElementById("profilMenuContainer3").style.display = 'none';
+  }if(localStorage.getItem("redactAnnouncement") === "true") {
+    onloadValueAnnouncement();
   }
 }
 
@@ -151,7 +153,7 @@ function addAnnouncement() {
     var headline = announcement[i].announcementHeadline;
     var codProduct = announcement[i].announcementCodProduct;
     var heading = announcement[i].announcementHeading;
-    var pricesProduct = announcement[i].announcementPricesProduct;
+    var pricesProduct = announcement[i].announcementPricesProduct + "₸";
     var textArea = announcement[i].announcementTextArea;
     var imgSrc = announcement[i].announcementImgSrc; 
       
@@ -190,25 +192,47 @@ function addAnnouncement() {
 }
 
 function newAnnouncement() {
-  var headline = document.getElementById("titleText").value;
-  var codProduct = document.getElementById("codProduct").value;
-  var heading = document.getElementById("headingTitleContainer").value;
-  var pricesProduct = document.getElementById("pricesText").value + "₸";
-  var textArea = document.getElementById("textArea").value;
-  var imgSrc = document.getElementById("result").src;
-  
-  var announcement = {
-    announcementHeadline: headline,
-    announcementCodProduct: codProduct,
-    announcementHeading: heading,
-    announcementPricesProduct: pricesProduct,
-    announcementTextArea: textArea,
-    announcementImgSrc: imgSrc
-  };
+  if(localStorage.getItem("redactAnnouncement") !== "true") {
+    var headline = document.getElementById("titleText").value;
+    var codProduct = document.getElementById("codProduct").value;
+    var heading = document.getElementById("headingTitleContainer").value;
+    var pricesProduct = document.getElementById("pricesText").value;
+    var textArea = document.getElementById("textArea").value;
+    var imgSrc = document.getElementById("result").src;
+    
+    var announcement = {
+      announcementHeadline: headline,
+      announcementCodProduct: codProduct,
+      announcementHeading: heading,
+      announcementPricesProduct: pricesProduct,
+      announcementTextArea: textArea,
+      announcementImgSrc: imgSrc
+    };
 
-  array.push(announcement);
-  localStorage.setItem("array", JSON.stringify(array));
+    array = JSON.parse(localStorage.getItem("array"));
+    array.unshift(announcement);
+    localStorage.setItem("array", JSON.stringify(array));
+    location = "../Home page visitor.html";
+  }else {
+    localStorage.removeItem("redactAnnouncement");
+    var product = JSON.parse(localStorage.getItem("arrayProduct"));
+    var array = JSON.parse(localStorage.getItem("array"));
+    var newArray = [];
+    for(var i = 0; i < array.length; i++) {
+      if(product.announcementCodProduct !== array[i].announcementCodProduct) {
+        newArray.push(array[i]);
+      }
+    }
+    localStorage.setItem("array", JSON.stringify(newArray));
+    newAnnouncement();
+  }
+}
+
+function cancelNewAnnouncement() {
   location = "../Home page visitor.html";
+  if(localStorage.getItem("redactAnnouncement") === "true") {
+    localStorage.removeItem("redactAnnouncement");
+  }
 }
 
 function productPageIF(codProduct) {
@@ -234,7 +258,7 @@ function productPage() {
   var imageProduct = codProduct.announcementImgSrc;
   var headlineProduct = codProduct.announcementHeadline;
   var headingProduct = codProduct.announcementHeading;
-  var pricesProduct = codProduct.announcementPricesProduct;
+  var pricesProduct = codProduct.announcementPricesProduct + "₸";
   var codProductProduct = codProduct.announcementCodProduct;
   var textAreaProduct = codProduct.announcementTextArea;
   
@@ -257,4 +281,20 @@ function removeAnnouncement() {
     localStorage.setItem("array", JSON.stringify(newArray));
     location = "../Home page visitor.html";
   }
+}
+
+function redactAnnouncement() {
+  localStorage.setItem("redactAnnouncement", "true");
+
+  location = "../addNewAnnouncement/addNewAnnouncement.html";
+}
+
+function onloadValueAnnouncement() {
+  var product = JSON.parse(localStorage.getItem("arrayProduct"));
+  document.getElementById("titleText").value = product.announcementHeadline;
+  document.getElementById("codProduct").value = product.announcementCodProduct;
+  document.getElementById("headingTitleContainer").value = product.announcementHeading;
+  document.getElementById("pricesText").value = product.announcementPricesProduct;
+  document.getElementById("textArea").value = product.announcementTextArea;
+  document.getElementById("result").src = product.announcementImgSrc;
 }
