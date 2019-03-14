@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>MyFirstProg-pageProduct</title>
+    <title>MyFirstProg-Basket</title>
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
     <script src="../js/app.js"></script>
   </head>
@@ -30,12 +30,12 @@
     <div class="profil-menu-container" id="profilMenu">
       <div class="menu-container" id="menuContainer">
         <div class="profil-menu-container-1">Личные данные</div>
-        <div class="profil-menu-container-2" id="profilMenuContainer2"><a href="../pageBasket/basket.html">Корзина</a></div>
+        <div class="profil-menu-container-2" id="profilMenuContainer2"><a href="basket.html">Корзина</a></div>
         <div class="profil-menu-container-3" id="profilMenuContainer3"><a href="../addNewAnnouncement/addNewAnnouncement.html">Добавить объявление</a></div>
         <div class="profil-menu-container-4" onclick="exitClick()">Выйти</div>
       </div>
     </div>
-    <div class="main" id="pageProductMain">
+    <div class="main">
       <div class="menu">
         <button>Каталог товаров</button>
         <button>Смартфоны</button>
@@ -52,25 +52,37 @@
         <button>Автотовары и транспорт</button>
         <button>Товары для животных</button>
       </div>
-      <div class="container-product">
-        <div class="image-product-container">
-          <img alt="image" id="productImageId">
+      <div class="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
+      <div class="basket-container">
+        <div class="basket-container-product">
+          <img src="../img/Huaway1.jpg" id="basket-img"/>
+          <div class="basket-container-text">
+            <div class="basket-headline" id="basketHeadline">Смартфон Apple iPhone XS Max, 512 GB, Gold</div>
+            <div class="basket-codProduct" id="basketCodProduct">Код товара: 21s6a5d56a48w4d32</div>
+            <div class="basket-prices" id="basketPrices">Цена товара: 180 800т</div>
+          </div>
+          <div class="basket-button-container">
+            <button>Удалить</button>
+          </div>
         </div>
-        <div class="right-container-product">
-          <div class="button-admin-product" id="buttonAdminProduct">
-            <button onclick="removeAnnouncement()">Удалить</button>
-            <button onclick="redactAnnouncement()">Редактировать</button>
+        <div class="basket-container-product">
+          <img src="../img/Huaway1.jpg" id="basket-img"/>
+          <div class="basket-container-text">
+            <div class="basket-headline" id="basketHeadline">Смартфон Apple iPhone XS Max, 512 GB, Gold</div>
+            <div class="basket-codProduct" id="basketCodProduct">Код товара: 21s6a5d56a48w4d32</div>
+            <div class="basket-prices" id="basketPrices">Цена товара: 180 800т</div>
           </div>
-          <div class="headline-conatiner" id="headLineContainer"></div>
-          <div class="prices-product">
-            <div class="prices-product-container" id="pricesProductContainer"></div>
+          <div class="basket-button-container">
+            <button>Удалить</button>
           </div>
-          <div class="bottom-container-product">
-            <button>В корзина</button>
-            <button>Добавить в мои желания</button>
-          </div>
-          <div class="text-area-container" id="textAreaContainer"></div>
         </div>
+      </div>
+      <div class="basket-container-total">
+        <div class="container-total-prices">
+          <div class="container-total">ИТОГО</div>
+          <div class="total-prices">361 600т</div>
+        </div>
+        <button>ОФОРМИТЬ ЗАКАЗ</button>
       </div>
     </div>
     <footer>

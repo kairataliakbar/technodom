@@ -120,7 +120,7 @@ header {
   background-color: rgb(145, 97, 9);
 }
 
-.profil-menu-container-3 a {
+.profil-menu-container-3, .profil-menu-container-2 a {
   color: black;
   text-decoration: none;
 }
@@ -562,4 +562,93 @@ button:hover {
   padding: 5px 10px 5px 10px;
   font-size: 16px;
   font-family: sans-serif;
+}
+
+.basket-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.basket-container-product {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #d8d7d6;
+  width: 594px;
+}
+
+.basket-container-product:hover {
+  border: 1px solid orange;
+}
+
+.basket-container-product:hover .basket-headline{
+  color: orange;
+}
+
+#basket-img {
+  width: 120px;
+  height: 120px;
+  padding: 10px 10px 10px 10px;
+}
+
+.basket-container-text {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 10px;
+}
+
+.basket-headline {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  color: black;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+.basket-codProduct {
+  color: black;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.basket-button-container {
+  padding: 20px 10px 10px 10px;
+}
+
+.basket-prices {
+  padding-top: 10px;
+  color: black;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.basket-container-total {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #4a4a4a;
+  background-color: #4a4a4a;
+  width: 594px;
+}
+
+.container-total-prices {
+  padding: 15px 40px 15px 40px;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-size: 24px;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.total-prices {
+  display: flex;
+  margin-left: 100px;
+}
+
+.basket-container-total button {
+  margin: 0px 180px 15px 180px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 20px;
 }
