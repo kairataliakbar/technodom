@@ -159,12 +159,12 @@ function addAnnouncement() {
       
     var divForvordContainer = document.createElement("div");
     divForvordContainer.className = "forvord-container";
-    divForvordContainer.count = codProduct;
-    divForvordContainer.onclick = function () {
-      productPageIF(this.count);
-    };
     var divForvordContainerImg = document.createElement("div");
     divForvordContainerImg.className = "forvord-container-img";
+    divForvordContainerImg.count = codProduct;
+    divForvordContainerImg.onclick = function () {
+      productPageIF(this.count);
+    };
     var imgForvordContainer = document.createElement("img");
     imgForvordContainer.src = imgSrc;
     var divForvordContainerText = document.createElement("div");
@@ -177,6 +177,10 @@ function addAnnouncement() {
     divPrices.innerHTML = pricesProduct;
     var buttonInGarbage = document.createElement("button");
     buttonInGarbage.innerHTML = "В корзину";
+    buttonInGarbage.count = codProduct;
+    buttonInGarbage.onclick = function () {
+      addBasket(this.count);
+    };
     var button = document.createElement("button");
     button.innerHTML = "Добавить в мои желания";
 
@@ -298,3 +302,74 @@ function onloadValueAnnouncement() {
   document.getElementById("textArea").value = product.announcementTextArea;
   document.getElementById("result").src = product.announcementImgSrc;
 }
+
+function addBasket(codProduct) {
+  arrayBasket = [];
+  for(var i = 0; i < array.length; i++) {
+    if(codProduct === array[i].announcementCodProduct) {
+      if(localStorage.getItem("arrayBasket") === null || localStorage.getItem("arrayBasket") === undefined) {
+        arrayBasket.unshift(array[i]);
+        localStorage.setItem("arrayBasket", JSON.stringify(arrayBasket));
+        alert("Добавлено в корзину");
+      }else {
+        arrayBasket = JSON.parse(localStorage.getItem("arrayBasket"));
+        arrayBasket.unshift(array[i]);
+        localStorage.setItem("arrayBasket", JSON.stringify(arrayBasket));
+        alert("Добавлено в корзину");
+      }
+    } 
+  }
+}
+
+function addIdBasket() {
+  product = JSON.parse(localStorage.getItem("arrayProduct"));
+  codProduct = product.announcementCodProduct;
+  addBasket(codProduct);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if(localStorage.getItem("arrayBasket") !== null || localStorage.getItem("arrayBasket") !== undefined) {
+    basketArrayProducts = JSON.parse(localStorage.getItem("arrayBasket"));
+    debugger;
+    for(var i = 0; i < basketArrayProducts.length; i++) {
+      var imageProduct = basketArrayProducts[i].announcementImgSrc;
+      var headlineProduct = basketArrayProducts[i].announcementHeadline;
+      var codProductProduct = "Код товара: " + basketArrayProducts[i].announcementCodProduct;
+      var pricesProduct = "Цена товара: " + basketArrayProducts[i].announcementPricesProduct + "т";
+
+      var divBasketContainerProduct = document.createElement("div");
+      divBasketContainerProduct.className = "basket-container-product";
+      var imgBasket = document.createElement("img");
+      imgBasket.className = "basket-img";
+      imgBasket.src = imageProduct;
+      var divBasketContainerText = document.createElement("div");
+      divBasketContainerText.className = "basket-container-text";
+      var divBasketHeadline = document.createElement("div");
+      divBasketHeadline.className = "basket-headline";
+      divBasketHeadline.innerHTML = headlineProduct;
+      var divBasketCodProduct = document.createElement("div");
+      divBasketCodProduct.className = "basket-codProduct";
+      divBasketCodProduct.innerHTML = codProductProduct;
+      var divBasketPrices = document.createElement("div");
+      divBasketPrices.className = "basket-prices";
+      divBasketPrices.innerHTML = pricesProduct;
+      var divBasketButtonContainer = document.createElement("div");
+      divBasketButtonContainer.className = "basket-button-container";
+      var button = document.createElement("button");
+      button.innerHTML = "Удалить";
+      button.count = basketArrayProducts[i].announcementCodProduct;
+      button.onclick = function() {
+        alert(this.count);
+      };
+
+      basketContainer.appendChild(divBasketContainerProduct);
+      divBasketContainerProduct.appendChild(imgBasket);
+      divBasketContainerProduct.appendChild(divBasketContainerText);
+      divBasketContainerText.appendChild(divBasketHeadline);
+      divBasketContainerText.appendChild(divBasketCodProduct);
+      divBasketContainerText.appendChild(divBasketPrices);
+      divBasketContainerProduct.appendChild(divBasketButtonContainer);
+      divBasketButtonContainer.appendChild(button);
+    }
+  }  
+});

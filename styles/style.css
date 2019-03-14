@@ -120,7 +120,7 @@ header {
   background-color: rgb(145, 97, 9);
 }
 
-.profil-menu-container-3, .profil-menu-container-2 a {
+.profil-menu-container-3 a, .profil-menu-container-2 a {
   color: black;
   text-decoration: none;
 }
@@ -199,6 +199,7 @@ header {
 
 .forvord-container-img {
   width: 235px;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -585,9 +586,11 @@ button:hover {
   color: orange;
 }
 
-#basket-img {
+.basket-img {
   width: 120px;
+  max-width: 120px;
   height: 120px;
+  max-height: 120px;
   padding: 10px 10px 10px 10px;
 }
 
@@ -595,6 +598,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   padding: 10px 10px 10px 10px;
+  width: 100%;
 }
 
 .basket-headline {
