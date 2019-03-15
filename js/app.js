@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", function() {
       button.innerHTML = "Удалить";
       button.count = basketArrayProducts[i].announcementCodProduct;
       button.onclick = function() {
-        alert(this.count);
+        removeBasketProduct(this.count);
       };
 
       basketContainer.appendChild(divBasketContainerProduct);
@@ -373,3 +373,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }  
 });
+
+function removeBasketProduct(codProduct) {
+  debugger;
+  var arrayBasket = JSON.parse(localStorage.getItem("arrayBasket"));
+  for(var i = 0; i < arrayBasket.length; i++) {
+    if(codProduct === arrayBasket[i].announcementCodProduct) {
+      arrayBasket.splice(i, 1);
+    }
+  }
+  localStorage.setItem("arrayBasket", JSON.stringify(arrayBasket));
+  location.reload();
+}
