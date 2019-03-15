@@ -240,6 +240,7 @@ function cancelNewAnnouncement() {
 }
 
 function productPageIF(codProduct) {
+  debugger;
   for(var i = 0; i < array.length; i++) {
     if(codProduct === array[i].announcementCodProduct){
       if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct") === undefined) {
@@ -343,6 +344,10 @@ document.addEventListener("DOMContentLoaded", function() {
       imgBasket.src = imageProduct;
       var divBasketContainerText = document.createElement("div");
       divBasketContainerText.className = "basket-container-text";
+      divBasketContainerText.id = basketArrayProducts[i].announcementCodProduct;
+      divBasketContainerText.onclick = function() {
+        onclickBasketProduct(this.id);
+      };
       var divBasketHeadline = document.createElement("div");
       divBasketHeadline.className = "basket-headline";
       divBasketHeadline.innerHTML = headlineProduct;
@@ -376,14 +381,11 @@ document.addEventListener("DOMContentLoaded", function() {
     var price = basketArrayProducts[i].announcementPricesProduct;
     var result = "";
     for(var j = 0; j < price.length; j++) {
-      console.log(price[j]);
-      if(price[j] != " ") {
-        result += price[j]; 
-      }
+      if(price[j] != " ") {result += price[j]; }
     }
     totalPrices += parseInt(result);
   }  
-  document.getElementById("totalPrices").innerHTML = totalPrices + "т";
+  document.getElementById("totalPrices").innerHTML = totalPrices + "₸";
   if(totalPrices === 0) {
     document.getElementById("totalPricesButton").innerText = "К ПОКУПКАМ";
     document.getElementById("totalPricesButton").onclick = function() {
@@ -393,6 +395,24 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("totalPricesButton").innerText = "ОФОРМИТЬ ЗАКАЗ";
   }
 });
+
+function onclickBasketProduct(codProduct) {
+  debugger;
+  for(var i = 0; i < array.length; i++) {
+    if(codProduct === array[i].announcementCodProduct){
+      if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct") === undefined) {
+        localStorage.setItem("arrayProduct", JSON.stringify(array[i]));
+        localStorage.setItem("pageProductEntry", true);
+        location = "../pageProduct/pageProduct.html";
+      }else {
+        localStorage.removeItem("arrayProduct");
+        localStorage.setItem("arrayProduct", JSON.stringify(array[i]));
+        localStorage.setItem("pageProductEntry", true);
+        location = "../pageProduct/pageProduct.html";
+      }
+    }
+  }
+}
 
 function removeBasketProduct(codProduct) {
   var arrayBasket = JSON.parse(localStorage.getItem("arrayBasket"));
