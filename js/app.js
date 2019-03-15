@@ -328,9 +328,8 @@ function addIdBasket() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  basketArrayProducts = JSON.parse(localStorage.getItem("arrayBasket"));
   if(localStorage.getItem("arrayBasket") !== null || localStorage.getItem("arrayBasket") !== undefined) {
-    basketArrayProducts = JSON.parse(localStorage.getItem("arrayBasket"));
-    debugger;
     for(var i = 0; i < basketArrayProducts.length; i++) {
       var imageProduct = basketArrayProducts[i].announcementImgSrc;
       var headlineProduct = basketArrayProducts[i].announcementHeadline;
@@ -371,11 +370,31 @@ document.addEventListener("DOMContentLoaded", function() {
       divBasketContainerProduct.appendChild(divBasketButtonContainer);
       divBasketButtonContainer.appendChild(button);
     }
+  }
+  var totalPrices = 0;
+  for(var i = 0; i < basketArrayProducts.length; i++) {
+    var price = basketArrayProducts[i].announcementPricesProduct;
+    var result = "";
+    for(var j = 0; j < price.length; j++) {
+      console.log(price[j]);
+      if(price[j] != " ") {
+        result += price[j]; 
+      }
+    }
+    totalPrices += parseInt(result);
   }  
+  document.getElementById("totalPrices").innerHTML = totalPrices + "т";
+  if(totalPrices === 0) {
+    document.getElementById("totalPricesButton").innerText = "К ПОКУПКАМ";
+    document.getElementById("totalPricesButton").onclick = function() {
+      location = "../Home page visitor.html";
+    };
+  }else {
+    document.getElementById("totalPricesButton").innerText = "ОФОРМИТЬ ЗАКАЗ";
+  }
 });
 
 function removeBasketProduct(codProduct) {
-  debugger;
   var arrayBasket = JSON.parse(localStorage.getItem("arrayBasket"));
   for(var i = 0; i < arrayBasket.length; i++) {
     if(codProduct === arrayBasket[i].announcementCodProduct) {
