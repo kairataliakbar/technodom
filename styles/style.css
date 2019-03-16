@@ -6,14 +6,13 @@ body {
 
 header {
   display: flex;
-  flex-grow: 1px;
   background-color: #4a4a4a;
   flex-direction: row;
-  height: 57px;
 }
 
 .box-1, .box-2, .box-3 {
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   align-items: stretch;
   color: white;
   font-size: 20px;
@@ -24,14 +23,17 @@ header {
   font-size: 26px;
   font-family: cursive;
   text-decoration: none;
+  text-shadow: 0 0 20px white;
+  transition-duration: 200ms;
 }
 
 .box-1 {
-  padding-left: 115px;
+  padding-left: 8%;
 }
 
 .box-1 a:hover {
   color: orange;
+  text-shadow: 0 0 20px orange;
 }
 
 .box-2 {
@@ -43,7 +45,7 @@ header {
 }
 
 .box-3 {
-  padding-right: 115px;
+  padding-right: 8%;
   font-size: 20px;
   display: flex;
   flex-direction: row;
@@ -52,6 +54,7 @@ header {
 .box-3 button a {
   text-decoration: none;
   color: black;
+  transition-duration: 100ms;
 }
 
 .formExit {
@@ -66,12 +69,12 @@ header {
   background-color: orange;
   border: 2px solid rgb(145, 97, 9);
   border-radius: 5px;
-  display: flex;
   flex-direction: row;
   font-size: 16px;
   align-items: center;
   height: 28px;
   cursor: pointer;
+  transition-duration: 100ms;
 }
 
 .profil-container:hover {
@@ -85,7 +88,7 @@ header {
 
 .profil-menu-container {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 0;
   top: 0;
@@ -113,6 +116,7 @@ header {
   font-size: 16px;
   padding: 5px 10px 5px 10px;
   justify-content: center;
+  transition-duration: 100ms;
 } 
 
 .profil-menu-container-1:hover, .profil-menu-container-2:hover, .profil-menu-container-3:hover, .profil-menu-container-4:hover {
@@ -128,8 +132,8 @@ header {
 .main {
   display: flex;
   flex-direction: column;
-  margin-left: 115px;
-  margin-right: 115px;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .menu {
@@ -141,7 +145,7 @@ header {
 
 .menu button {
   display: flex;
-  height: 60px;
+  min-height: 60px;
   background-color: orange;
   border: 1px solid rgb(145, 97, 9);
   border-radius: 0%;
@@ -178,10 +182,8 @@ header {
 }
 
 .container-bottom-main {
-  width: 996px;
   display: flex;
-  align-self: center;
-  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -195,6 +197,7 @@ header {
   padding: 5px 5px 5px 5px;
   border: 2px solid white;
   cursor: pointer;
+  transition-duration: 150ms;
 }
 
 .forvord-container-img {
@@ -233,6 +236,7 @@ header {
 }
 
 .forvord-container:hover {
+  box-shadow: 0 0 10px rgb(182, 127, 24);
   border: 2px solid orange;
   opacity:0.65;
   filter:alpha(opacity=50);
@@ -246,20 +250,17 @@ footer {
 }
 
 .footer-box {
-  padding: 40px 115px 40px 115px;
+  padding: 40px 8% 40px 8%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .f-box-1, .f-box-2, .f-box-3, .f-box-4 {
   display: flex;
+  width: 200px;
   flex-direction: column;
-  padding-right: 150px;
 } 
-
-.f-box-4 {
-  padding-right: 0px;
-}
 
 .footer-forvord-text {
   color: orange;
@@ -301,6 +302,7 @@ button {
   font-size: 16px;
   border-radius: 3px;
   font-family: serif;
+  transition-duration: 100ms;
 }
 
 button:hover {
@@ -490,6 +492,7 @@ button:hover {
   font-size: 20px;
   font-family: cursive;
   cursor: pointer;
+  transition-duration: 100ms;
 }
 
 .button-tc:hover {
@@ -576,10 +579,12 @@ button:hover {
   flex-direction: row;
   border: 1px solid #d8d7d6;
   width: 594px;
+  transition-duration: 150ms;
 }
 
 .basket-container-product:hover {
   border: 1px solid orange;
+  box-shadow: 0 0 10px rgb(182, 127, 24);
 }
 
 .basket-container-product:hover .basket-headline{
@@ -656,4 +661,17 @@ button:hover {
   padding-bottom: 5px;
   padding-top: 5px;
   font-size: 20px;
+}
+
+.button-delete-basket {
+  color: black;
+  font-family: cursive;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 100ms;
+}
+
+.button-delete-basket:hover {
+  color: orange;
+  text-shadow: 0px 0px 20px rgb(145, 100, 3);
 }

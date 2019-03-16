@@ -240,7 +240,6 @@ function cancelNewAnnouncement() {
 }
 
 function productPageIF(codProduct) {
-  debugger;
   for(var i = 0; i < array.length; i++) {
     if(codProduct === array[i].announcementCodProduct){
       if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct") === undefined) {
@@ -359,8 +358,9 @@ document.addEventListener("DOMContentLoaded", function() {
       divBasketPrices.innerHTML = pricesProduct;
       var divBasketButtonContainer = document.createElement("div");
       divBasketButtonContainer.className = "basket-button-container";
-      var button = document.createElement("button");
-      button.innerHTML = "Удалить";
+      var button = document.createElement("span");
+      button.className = "button-delete-basket";
+      button.innerHTML = "X";
       button.count = basketArrayProducts[i].announcementCodProduct;
       button.onclick = function() {
         removeBasketProduct(this.count);
@@ -397,7 +397,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function onclickBasketProduct(codProduct) {
-  debugger;
   for(var i = 0; i < array.length; i++) {
     if(codProduct === array[i].announcementCodProduct){
       if(localStorage.getItem("arrayProduct") === null && localStorage.getItem("arrayProduct") === undefined) {
