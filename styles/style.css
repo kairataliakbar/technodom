@@ -137,30 +137,76 @@ header {
 }
 
 .menu {
-  display: flex;
-  flex-direction: row;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.menu button {
+.menu ul {
+  padding: 0%;
+  margin: 0%;
+  list-style: none;
   display: flex;
-  min-height: 60px;
+  justify-content: center;
+}
+
+.menu ul li {
   background-color: orange;
-  border: 1px solid rgb(145, 97, 9);
-  border-radius: 0%;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  border-right: 1px solid rgb(145, 97, 9);
+}
+
+.menu ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+  text-transform: uppercase;
   color: black;
-  font-size: 16px;
-  font-family: serif;
-  cursor: pointer;
+  font-size: 18px;
+  font-family: monospace;
+  transition-duration: 200ms;
 }
 
-.menu button:not(:last-child) {
-  border-right: none;
-}
-
-.menu button:hover {
+.menu ul li a:hover {
   background-color: rgb(145, 97, 9);
+  color: white;
+  transition-duration: 200ms;
+  box-shadow: 1px 5px 15px -5px black;
+}
+
+.menu ul li:first-child {
+  border-left: 1px solid rgb(145, 97, 9);
+}
+
+.menu ul li a i {
+  padding-right: 10px;
+}
+
+.menu ul li:hover ul{
+  display: flex;
+}
+
+.menu li ul {
+  display: none;
+  flex-direction: column;
+}
+
+.menu li ul li {
+  background-color: rgb(209, 139, 9);
+  max-width: 150px;
+}
+
+.menu li ul li a {
+  text-transform: none;
+  font-size: 14px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  justify-content: flex-start;
 }
 
 .bottom-main {
@@ -197,7 +243,7 @@ header {
   padding: 5px 5px 5px 5px;
   border: 2px solid white;
   cursor: pointer;
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .forvord-container-img {
@@ -240,6 +286,7 @@ header {
   border: 2px solid orange;
   opacity:0.65;
   filter:alpha(opacity=50);
+  transition-duration: 250ms;
 }
 
 footer {
@@ -331,6 +378,8 @@ button:hover {
   border-radius: 10px;
   width: 30%;
   box-shadow: 5px 10px 5px #666;
+  min-width: 300px;
+  min-height: 270px;
 }
 
 .modal-container h2 {
@@ -638,7 +687,8 @@ button:hover {
   flex-direction: column;
   border: 1px solid #4a4a4a;
   background-color: #4a4a4a;
-  width: 594px;
+  max-width: 594px;
+  min-width: 314px;
 }
 
 .container-total-prices {
@@ -653,21 +703,24 @@ button:hover {
 
 .total-prices {
   display: flex;
-  margin-left: 100px;
+  margin-left: 40px;
 }
 
-.basket-container-total button {
-  margin: 0px 180px 15px 180px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+.total-prices-button {
+  display: flex;
+  justify-content: center;
+}
+
+.total-prices-button button {
+  margin-bottom: 10px;
   font-size: 20px;
 }
 
 .button-delete-basket {
   color: black;
-  font-family: cursive;
+  font-family: sans-serif;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 30px;
   transition-duration: 100ms;
 }
 

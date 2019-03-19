@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <title>MyFirstProg-Basket</title>
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="../js/app.js"></script>
   </head>
   <body>
@@ -36,22 +37,25 @@
       </div>
     </div>
     <div class="main">
-      <div class="menu">
-        <button>Каталог товаров</button>
-        <button>Смартфоны</button>
-        <button>Компьютеры и офис</button>
-        <button>ТВ, аудио и видио</button>
-        <button>Фото и дроны</button>
-        <button>Бытовая техника</button>
-        <button>Техника для кухни</button>
-        <button>Все для геймеров</button>
-        <button>Дом</button>
-        <button>Детский мир</button>
-        <button>Косметика</button>
-        <button>Спорт и туризм</button>
-        <button>Автотовары и транспорт</button>
-        <button>Товары для животных</button>
-      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="../Home page visitor.html"><i class="fas fa-home"></i>Главная</a></li>
+          <li><a href="#"><i class="fas fa-shopping-cart"></i>Продукты</a>
+            <ul>
+              <li><a href="#">Смартфоны</a></li>
+              <li><a href="#">Компьютеры</a></li>
+              <li><a href="#">ТВ, аудио и видио</a></li>
+              <li><a href="#">Бытовая техника</a></li>
+              <li><a href="#">Все для геймеров</a></li>
+              <li><a href="#">Дом</a></li>
+              <li><a href="#">Автотовары и транспорт</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="fas fa-hands-helping"></i>Помощь</a></li>
+          <li><a href="#"><i class="far fa-newspaper"></i>Новости</a></a></li>
+          <li><a href="#"><i class="fas fa-atlas"></i>Контакты</a></a></li>
+        </ul>
+      </nav>
       <div class="top-bottom-main">Корзина - ОФОРМЛЕНИЕ ЗАКАЗА</div>
       <div class="basket-container" id="basketContainer">
       </div>
@@ -60,7 +64,9 @@
           <div class="container-total">ИТОГО</div>
           <div class="total-prices" id="totalPrices"></div>
         </div>
-        <button id="totalPricesButton"></button>
+        <div class="total-prices-button">
+          <button id="totalPricesButton"></button>
+        </div>
       </div>
     </div>
     <footer>

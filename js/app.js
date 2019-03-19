@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function() {
       divBasketButtonContainer.className = "basket-button-container";
       var button = document.createElement("span");
       button.className = "button-delete-basket";
-      button.innerHTML = "X";
+      button.innerHTML = "&times;";
       button.count = basketArrayProducts[i].announcementCodProduct;
       button.onclick = function() {
         removeBasketProduct(this.count);
