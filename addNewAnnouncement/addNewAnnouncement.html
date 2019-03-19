@@ -4,133 +4,135 @@
     <meta charset="utf-8"/>
     <title>MyFirstProg-addNewAnnouncement</title>
     <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="../js/app.js"></script>
 </head>
 <body>
-    <header>
-      <div class="box-1">
-        <a href="../Home page visitor.html">SATU.KZ</a>
-      </div>
-      <div class="box-2"></div>
-      <div class="box-3">
-        <form id="formEntry">  
-          <input type="text" id="login"/>
-          <input type="password" id="password"/>
-          <button type="submit" id="inner" onclick="websiteEntry()">Войти</button>
-          <button id="register" class="register" onclick="registrClick()">Регистрация</button>
-        </form>
-        <div calss="formExit" id="formExit">
-          <div class="profil-container" onclick="profilMenuContainer()">
-            <img src="../img/profil_img.png" alt="profil" width="20px" height="20px"/>
-            <span id="textSpan"></span>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="profil-menu-container" id="profilMenu">
-      <div class="menu-container" id="menuContainer">
-        <div class="profil-menu-container-1">Личные данные</div>
-        <div class="profil-menu-container-2" id="profilMenuContainer2">Корзина</div>
-        <div class="profil-menu-container-3" id="profilMenuContainer3"><a href="addNewAnnouncement.html">Добавить объявление</a></div>
-        <div class="profil-menu-container-4" onclick="exitClick()">Выйти</div>
+  <header>
+    <div class="box-1">
+      <a href="../Home page visitor.html">SATU.KZ</a>
+    </div>
+    <div class="box-2"></div>
+    <div class="box-3">
+      <form id="formEntry">  
+        <input type="text" id="login"/>
+        <input type="password" id="password"/>
+        <button type="submit" id="inner" onclick="websiteEntry()">Войти</button>
+        <button id="register" class="register" onclick="registrClick()">Регистрация</button>
+      </form>
+      <div calss="formExit" id="formExit">
+        <nav class="profil-container">
+          <ul>
+            <li><a href="#"><i class="fas fa-user-alt"></i><span id="textSpan"></span></a>
+              <ul>
+                <li><a href="#"><i class="fas fa-user-circle"></i>Личные кабинет</a></li>
+                <li><a href="../pageBasket/basket.html"><i class="fas fa-shopping-basket"></i>Корзина</a></li>
+                <li><a href="addNewAnnouncement.html"><i class="fas fa-cart-plus"></i>Добавить объявление</a></li>
+                <li><a href="#"><i class="fas fa-star"></i>Мои желания</a></li>
+                <li><a onclick="exitClick()"><i class="fas fa-sign-out-alt"></i>Выход</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
-    <div class="main">
-      <div class="top-main">Подать объявление на SATU.KZ</div>
-      <div class="body-main">
-        <form>
-          <div class="title-container">
-            <div class="left-tc">Заголовок:</div>
-            <div class="right-tc">
-              <input type="text" class="text-header" id="titleText"/>
+  </header>
+  <div class="main">
+    <div class="top-main">Подать объявление на SATU.KZ</div>
+    <div class="body-main">
+      <form>
+        <div class="title-container">
+          <div class="left-tc">Заголовок:</div>
+          <div class="right-tc">
+            <input type="text" class="text-header" id="titleText"/>
+          </div>
+        </div>
+        <div class="title-container">
+          <div class="left-tc">Код товара:</div>
+          <div class="right-tc">
+            <input type="text" class="cod-product" id="codProduct"/>
+          </div>
+        </div>
+        <div class="title-container">
+          <div class="left-tc">Рубрика:</div>
+          <div class="right-tc">
+            <select name="heading" class="heading-tc" id="headingTitleContainer">
+              <option value=""></option>
+              <option value="phon">Смартфоны</option>
+              <option value="pc and office">Компьютеры и офис</option>
+              <option value="tv audio and video">ТВ, аудио и видио</option>
+              <option value="foto">Фото и дроны</option>
+              <option value="appliances">Бытовая техника</option>
+              <option value="equipment for kitchen">Техника для кухни</option>
+              <option value="all for gamer">Все для геймеров</option>
+              <option value="home">Дом</option>
+              <option value="child world">Детский мир</option>
+              <option value="cosmetics">Косметика</option>
+              <option value="sport and tourism">Спорт и туризм</option>
+              <option value="auto products and transport">Автотовары и транспорт</option>
+              <option value="products for animals">Товары для животных</option>
+            </select>
+          </div>
+        </div>
+        <div class="title-container">
+          <div class="left-tc">Цена:</div>
+          <div class="right-tc">
+            <input type="text" class="text-prices" id="pricesText"> тг.
+          </div>
+        </div>
+        <div class="title-container">
+          <div class="left-tc">Описание и характеристика:</div>
+          <div class="right-tc">
+            <textarea name="text" class="text-area" id="textArea" cols="80" rows="1"></textarea>
+          </div>
+        </div>
+        <div class="title-container">
+          <div class="left-tc">Добавить фото:</div>
+          <div class="right-tc">
+            <div class="add-img">
+              <input type="file" name="addImg" class="add-img-file" id="addImg" accept="image/jpeg,image/gif,image/png" onclick="addImage()"/>
+              <img id="result"/>
             </div>
           </div>
-          <div class="title-container">
-            <div class="left-tc">Код товара:</div>
-            <div class="right-tc">
-              <input type="text" class="cod-product" id="codProduct"/>
-            </div>
-          </div>
-          <div class="title-container">
-            <div class="left-tc">Рубрика:</div>
-            <div class="right-tc">
-              <select name="heading" class="heading-tc" id="headingTitleContainer">
-                <option value=""></option>
-                <option value="phon">Смартфоны</option>
-                <option value="pc and office">Компьютеры и офис</option>
-                <option value="tv audio and video">ТВ, аудио и видио</option>
-                <option value="foto">Фото и дроны</option>
-                <option value="appliances">Бытовая техника</option>
-                <option value="equipment for kitchen">Техника для кухни</option>
-                <option value="all for gamer">Все для геймеров</option>
-                <option value="home">Дом</option>
-                <option value="child world">Детский мир</option>
-                <option value="cosmetics">Косметика</option>
-                <option value="sport and tourism">Спорт и туризм</option>
-                <option value="auto products and transport">Автотовары и транспорт</option>
-                <option value="products for animals">Товары для животных</option>
-              </select>
-            </div>
-          </div>
-          <div class="title-container">
-            <div class="left-tc">Цена:</div>
-            <div class="right-tc">
-              <input type="text" class="text-prices" id="pricesText"> тг.
-            </div>
-          </div>
-          <div class="title-container">
-            <div class="left-tc">Описание и характеристика:</div>
-            <div class="right-tc">
-              <textarea name="text" class="text-area" id="textArea" cols="80" rows="1"></textarea>
-            </div>
-          </div>
-          <div class="title-container">
-            <div class="left-tc">Добавить фото:</div>
-            <div class="right-tc">
-              <div class="add-img">
-                <input type="file" name="addImg" class="add-img-file" id="addImg" accept="image/jpeg,image/gif,image/png" onclick="addImage()"/>
-                <img id="result"/>
-              </div>
-            </div>
-          </div>
-          <div class="button-container">
-            <input type="button" name="buttonTitleCon" class="button-tc" value="Опубликовать" onclick="newAnnouncement()"/>
-            <input type="button" name="buttonTitleCon" class="button-tc" value="Отмена" onclick="cancelNewAnnouncement()"/>
-          </div>
-        </form>
+        </div>
+        <div class="button-container">
+          <input type="button" name="buttonTitleCon" class="button-tc" value="Опубликовать" onclick="newAnnouncement()"/>
+          <input type="button" name="buttonTitleCon" class="button-tc" value="Отмена" onclick="cancelNewAnnouncement()"/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-box">
+      <div class="f-box-1">
+        <div class="footer-forvord-text">SATU.KZ</div>
+        <div class="footer-text"><a href="javaHTML.html">Вход/Регистрация</a></div>
+      </div>
+      <div class="f-box-2">
+        <div class="footer-forvord-text">Каталог товаров</div>
+        <div class="footer-text"><a href="javaHTML.html">Смартфоны и гаджеты</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Компьютеры</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Техника для дома</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Техника для кухни</a></div>
+        <div class="footer-text"><a href="javaHTML.html">ТВ и Аудио</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Авто товары</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Детские товары</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Досуг</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Фото и Видео</a></div>
+      </div>
+      <div class="f-box-3">
+        <div class="footer-forvord-text">Партнерам</div>
+        <div class="footer-text"><a href="javaHTML.html">Вход в кабинет продавца</a></div>
+        <div class="footer-forvord-text">Документы</div>
+        <div class="footer-text"><a href="javaHTML.html">Пользовательское соглашение</a></div>
+        <div class="footer-text"><a href="javaHTML.html">Договор присоединения</a></div>
+      </div>
+      <div class="f-box-4">
+        <div class="footer-forvord-text">Помощь и контакты</div>
+        <div class="footer-text"><a href="javaHTML.html">help_shop@satu.kz</a></div>
       </div>
     </div>
-    <footer>
-      <div class="footer-box">
-        <div class="f-box-1">
-          <div class="footer-forvord-text">SATU.KZ</div>
-          <div class="footer-text"><a href="javaHTML.html">Вход/Регистрация</a></div>
-        </div>
-        <div class="f-box-2">
-          <div class="footer-forvord-text">Каталог товаров</div>
-          <div class="footer-text"><a href="javaHTML.html">Смартфоны и гаджеты</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Компьютеры</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Техника для дома</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Техника для кухни</a></div>
-          <div class="footer-text"><a href="javaHTML.html">ТВ и Аудио</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Авто товары</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Детские товары</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Досуг</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Фото и Видео</a></div>
-        </div>
-        <div class="f-box-3">
-          <div class="footer-forvord-text">Партнерам</div>
-          <div class="footer-text"><a href="javaHTML.html">Вход в кабинет продавца</a></div>
-          <div class="footer-forvord-text">Документы</div>
-          <div class="footer-text"><a href="javaHTML.html">Пользовательское соглашение</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Договор присоединения</a></div>
-        </div>
-        <div class="f-box-4">
-          <div class="footer-forvord-text">Помощь и контакты</div>
-          <div class="footer-text"><a href="javaHTML.html">help_shop@satu.kz</a></div>
-        </div>
-      </div>
-      <div class="footer-copyright">© ТОО «SATU.KZ Магазин», 2019</div>
-    </footer>
-  </body>
+    <div class="footer-copyright">© ТОО «SATU.KZ Магазин», 2019</div>
+  </footer>
+</body>
 </html>

@@ -5,6 +5,7 @@ body {
 }
 
 header {
+  max-height: 57px;
   display: flex;
   background-color: #4a4a4a;
   flex-direction: row;
@@ -63,70 +64,69 @@ header {
 
 .profil-container {
   display: flex;
-  margin-right: 0px;
-  margin-left: 52.09px;
-  padding-right: 5px;
-  background-color: orange;
-  border: 2px solid rgb(145, 97, 9);
-  border-radius: 5px;
+}
+
+.profil-container ul {
+  margin: 0%;
+  padding: 0%;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.profil-container ul li a {
+  display: flex;
   flex-direction: row;
+  background-color: orange;
+  color: black;
   font-size: 16px;
-  align-items: center;
-  height: 28px;
-  cursor: pointer;
-  transition-duration: 100ms;
+  font-family: sans-serif;
+  text-decoration: none;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid rgb(145, 97, 9);
+  border-radius: 3px; 
+  transition-duration: 200ms;
 }
 
-.profil-container:hover {
+.profil-container ul li a span {
+  transition-duration: 200ms;
+}
+
+.profil-container ul li a:hover {
   background-color: rgb(145, 97, 9);
+  color: white; 
+  transition-duration: 200ms;
 }
 
-.profil-container img {
+.profil-container ul li a:hover span {
+  color: white;
+  transition-duration: 200ms;
+}
+
+.profil-container ul li a i {
+  padding-right: 8px;
+}
+
+.profil-container li ul {
+  right: 50px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+}
+
+.profil-container li ul a {
+  border: none;
+  border-radius: 0%;
+  background-color: rgb(209, 139, 9);
+}
+
+.profil-container li ul li a i {
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.profil-menu-container {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.menu-container {
-  width: 200px;
-  margin-left: 78%;
-  margin-top: 45px;
-  flex-direction: column;
-  background-color: orange;
-  border: 1px solid rgb(145, 97, 9);
-}
-
-.profil-menu-container-1, .profil-menu-container-2, .profil-menu-container-3, .profil-menu-container-4 {
-  height: 24px;
-  margin: 2px 2px 2px 2px;
-  border: 1px solid orange;
+.profil-container ul:hover ul {
   display: flex;
-  background-color: orange;
-  color: black;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 5px 10px 5px 10px;
-  justify-content: center;
-  transition-duration: 100ms;
-} 
-
-.profil-menu-container-1:hover, .profil-menu-container-2:hover, .profil-menu-container-3:hover, .profil-menu-container-4:hover {
-  border: 1px solid rgb(145, 97, 9);
-  background-color: rgb(145, 97, 9);
-}
-
-.profil-menu-container-3 a, .profil-menu-container-2 a {
-  color: black;
-  text-decoration: none;
 }
 
 .main {
@@ -139,6 +139,7 @@ header {
 .menu {
   margin-top: 10px;
   margin-bottom: 10px;
+  z-index: 1;
 }
 
 .menu ul {
@@ -243,7 +244,7 @@ header {
   padding: 5px 5px 5px 5px;
   border: 2px solid white;
   cursor: pointer;
-  transition-duration: 250ms;
+  transition-duration: 150ms;
 }
 
 .forvord-container-img {

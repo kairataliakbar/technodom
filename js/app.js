@@ -12,10 +12,10 @@ window.onload = function windowOnload() {
   }if(sessionStorage.getItem('display') !== null) {
     var display = sessionStorage.getItem('display');
     document.getElementById("modalWin").style.display = display;
-  }if(localStorage.getItem("adminEntry") === 'admin') {
-    document.getElementById("profilMenuContainer2").style.display = 'none';
-  }if(localStorage.getItem("adminEntry") !== 'admin') {
-    document.getElementById("profilMenuContainer3").style.display = 'none';
+  // }if(localStorage.getItem("adminEntry") === 'admin') {
+  //   document.getElementById("profilMenuContainer2").style.display = 'none';
+  // }if(localStorage.getItem("adminEntry") !== 'admin') {
+  //   document.getElementById("profilMenuContainer3").style.display = 'none';
   }if(localStorage.getItem("redactAnnouncement") === "true") {
     onloadValueAnnouncement();
   }
