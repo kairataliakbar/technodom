@@ -12,10 +12,11 @@ window.onload = function windowOnload() {
   }if(sessionStorage.getItem('display') !== null) {
     var display = sessionStorage.getItem('display');
     document.getElementById("modalWin").style.display = display;
-  // }if(localStorage.getItem("adminEntry") === 'admin') {
-  //   document.getElementById("profilMenuContainer2").style.display = 'none';
-  // }if(localStorage.getItem("adminEntry") !== 'admin') {
-  //   document.getElementById("profilMenuContainer3").style.display = 'none';
+  }if(localStorage.getItem("adminEntry") === 'admin') {
+    document.getElementById("myBasketButton").style.display = "none";
+    document.getElementById("myWishesButton").style.display = "none";
+  }if(localStorage.getItem("adminEntry") !== 'admin') {
+    document.getElementById("addAnnouncementButton").style.display = "none";
   }if(localStorage.getItem("redactAnnouncement") === "true") {
     onloadValueAnnouncement();
   }
