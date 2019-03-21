@@ -37,6 +37,18 @@
         </div>
       </div>
     </header>
+    <modal class="modal-Win" id="modalWin">
+      <div class="modal-container" id="modal-container">
+        <h2>Авторизуйтесь</h2>
+        <form>
+          <div class="login-win"><input type="text" id="loginWin" placeholder="Login"/></div>
+          <div class="email-win"><input type="email" id="emailWin" placeholder="E-mail"/></div>
+          <div class="password-win"><input type="password" id="passwordWin" placeholder="Password"/></div>
+          <button onclick="registrModalClick()">Регистрация</button>
+          <button id="close" class="close" onclick="closeClick()">Отмена</button>
+        </form>
+      </div>
+    </modal>
     <div class="main">
       <nav class="menu">
         <ul>
