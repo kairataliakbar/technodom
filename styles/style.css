@@ -357,6 +357,7 @@ button:hover {
   background-color: rgb(145, 97, 9);
   color: white;
   transition-duration: 100ms;
+  box-shadow: 0 0 10px black;
 }
 
 #modalWin {
@@ -558,6 +559,14 @@ button:hover {
   padding: 5px 10% 5px 5px;
 }
 
+.button-container button {
+  font-size: 20px;
+  cursor: pointer;
+  font-family: sans-serif;
+  padding: 8px;
+  margin-right: 5px;
+}
+
 .button-tc {
   height: 50px;
   padding: 0px 20px 0px 20px;
@@ -756,3 +765,74 @@ button:hover {
   color: orange;
   text-shadow: 0px 0px 20px rgb(145, 100, 3);
 }
+
+.modal-win-basket {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  overflow: auto;
+  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 0.2s;
+  animation-name: fadeIn;
+  animation-duration: 0.2s
+}
+
+.modal-basket-container {
+  position: fixed;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  box-shadow: 0 0 10px black;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+.modal-basket-text {
+  padding: 20px;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.modal-basket-button {
+  padding: 0px 5px 20px 5px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.modal-basket-button button {
+  margin: 0 10px 0 10px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.delete-basket-button:hover {
+  color: green;
+  transition-duration: 0.2s;
+}
+
+.close-basket-button:hover {
+  color: red;
+  transition-duration: 0.2s;
+}
+
+.modal-basket-button button i {
+  font-size: 35px;
+} 
+
+
+
+
+

@@ -58,9 +58,9 @@ window.onclick = function(event) {
     document.getElementById('modalWin').style.display = 'none';
     sessionStorage.setItem('display', 'none');
   }
-  var profilMenu = document.getElementById('profilMenu');
-  if(event.target == profilMenu) {
-    document.getElementById('profilMenu').style.display = 'none';
+
+  if(document.getElementById("modalWinBasket") === event.target) {
+    document.getElementById("modalWinBasket").style.display = "none";
   }
 }
 
@@ -364,7 +364,8 @@ document.addEventListener("DOMContentLoaded", function() {
       button.innerHTML = "&times;";
       button.count = basketArrayProducts[i].announcementCodProduct;
       button.onclick = function() {
-        removeBasketProduct(this.count);
+        localStorage.setItem("deleteProductInBasket", this.count);
+        openModalBasketContainer();
       };
 
       basketContainer.appendChild(divBasketContainerProduct);
@@ -414,7 +415,8 @@ function onclickBasketProduct(codProduct) {
   }
 }
 
-function removeBasketProduct(codProduct) {
+function removeBasketProduct() {
+  var codProduct = localStorage.getItem("deleteProductInBasket");
   var arrayBasket = JSON.parse(localStorage.getItem("arrayBasket"));
   for(var i = 0; i < arrayBasket.length; i++) {
     if(codProduct === arrayBasket[i].announcementCodProduct) {
@@ -422,5 +424,17 @@ function removeBasketProduct(codProduct) {
     }
   }
   localStorage.setItem("arrayBasket", JSON.stringify(arrayBasket));
+  closeModalBasketContainer()
   location.reload();
 }
+
+function openModalBasketContainer() {
+  document.getElementById("modalWinBasket").style.display = "block";
+}
+
+function closeModalBasketContainer() {
+  document.getElementById("modalWinBasket").style.display = "none";
+}
+
+
+
