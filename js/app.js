@@ -305,18 +305,19 @@ function onloadValueAnnouncement() {
 }
 
 function addBasket(codProduct) {
+  debugger;
   arrayBasket = [];
   for(var i = 0; i < array.length; i++) {
     if(codProduct === array[i].announcementCodProduct) {
       if(localStorage.getItem("arrayBasket") === null || localStorage.getItem("arrayBasket") === undefined) {
         arrayBasket.unshift(array[i]);
         localStorage.setItem("arrayBasket", JSON.stringify(arrayBasket));
-        alert("Добавлено в корзину");
+        snackbarAddProductInBasket();
       }else {
         arrayBasket = JSON.parse(localStorage.getItem("arrayBasket"));
         arrayBasket.unshift(array[i]);
         localStorage.setItem("arrayBasket", JSON.stringify(arrayBasket));
-        alert("Добавлено в корзину");
+        snackbarAddProductInBasket();
       }
     } 
   }
@@ -436,5 +437,9 @@ function closeModalBasketContainer() {
   document.getElementById("modalWinBasket").style.display = "none";
 }
 
-
+function snackbarAddProductInBasket() {
+  var x = document.getElementById("snackbarAddProductBasketContainer");
+  x.className = "show";
+  setTimeout(function() { x.className = x.className.replace("show", ""); }, 3000);
+}
 

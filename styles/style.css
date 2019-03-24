@@ -378,11 +378,11 @@ button:hover {
 }
 
 .modal-container {
-  margin: 10% auto;
+  position: fixed;
+  top: 0;
+  margin: 0 35% 0 35%;
   background-color: #fefefe;
-  width: 350px;
   padding: 20px 40px 20px 40px;
-  border-radius: 5px;
   box-shadow: 0 0 20px black;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
@@ -802,6 +802,7 @@ button:hover {
   padding: 20px;
   font-size: 18px;
   font-family: sans-serif;
+  text-align: center;
 }
 
 .modal-basket-button {
@@ -832,6 +833,46 @@ button:hover {
   font-size: 35px;
 } 
 
+#snackbarAddProductBasketContainer {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 40%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbarAddProductBasketContainer.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
 
 
 
