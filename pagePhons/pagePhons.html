@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>MyFirstProg</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
-    <script src="js/app.js"></script>
+    <title>MyFirstProg-pagePhons</title>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+    <script src="../js/app.js"></script>
   </head>
   <body>
     <header>
       <div class="box-1">
-        <a href="./Home page visitor.html">SATU.KZ</a>
+        <a href="../Home page visitor.html">SATU.KZ</a>
       </div>
       <div class="box-2"></div>
       <div class="box-3">
@@ -26,8 +26,8 @@
               <li><a href="#"><i class="fas fa-user-alt"></i><span id="textSpan"></span></a>
                 <ul>
                   <li><a href="#"><i class="fas fa-user-circle"></i>Личные кабинет</a></li>
-                  <li id="myBasketButton"><a href="pageBasket/basket.html"><i class="fas fa-shopping-basket"></i>Корзина</a></li>
-                  <li id="addAnnouncementButton"><a href="addNewAnnouncement/addNewAnnouncement.html"><i class="fas fa-cart-plus"></i>Добавить объявление</a></li>
+                  <li id="myBasketButton"><a href="../pageBasket/basket.html"><i class="fas fa-shopping-basket"></i>Корзина</a></li>
+                  <li id="addAnnouncementButton"><a href="../addNewAnnouncement/addNewAnnouncement.html"><i class="fas fa-cart-plus"></i>Добавить объявление</a></li>
                   <li><a onclick="exitClick()"><i class="fas fa-sign-out-alt"></i>Выход</a></li>
                 </ul>
               </li>
@@ -49,37 +49,36 @@
       </div>
     </modal>
     <div class="main">
-      <nav class="menu">
-        <ul>
-          <li><a href="./Home page visitor.html"><i class="fas fa-home"></i>Главная</a></li>
-          <li><a href="#"><i class="fas fa-shopping-cart"></i>Продукты</a>
-            <ul>
-              <li><a href="./pagePhons/pagePhons.html">Смартфоны</a></li>
-              <li><a href="./pagePC/pagePC.html">Компьютеры</a></li>
-              <li><a href="#">ТВ, аудио и видио</a></li>
-              <li><a href="#">Бытовая техника</a></li>
-              <li><a href="#">Все для геймеров</a></li>
-              <li><a href="#">Дом</a></li>
-              <li><a href="#">Автотовары и транспорт</a></li>
-            </ul>
-          </li>
-          <li><a href="#"><i class="fas fa-hands-helping"></i>Помощь</a></li>
-          <li><a href="#"><i class="far fa-newspaper"></i>Новости</a></a></li>
-          <li><a href="#"><i class="fas fa-atlas"></i>Контакты</a></a></li>
-        </ul>
-      </nav>
-      <div class="bottom-main">
-        <div class="top-bottom-main">Популярные товары прямо сейчас</div>
-        <div class="container-bottom-main" id="containerBottomMain">
+        <nav class="menu">
+          <ul>
+            <li><a href="../Home page visitor.html"><i class="fas fa-home"></i>Главная</a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i>Продукты</a>
+              <ul>
+                <li><a href="pagePhons.html">Смартфоны</a></li>
+                <li><a href="../pagePC/pagePC.html">Компьютеры</a></li>
+                <li><a href="#">ТВ, аудио и видио</a></li>
+                <li><a href="#">Бытовая техника</a></li>
+                <li><a href="#">Все для геймеров</a></li>
+                <li><a href="#">Дом</a></li>
+                <li><a href="#">Автотовары и транспорт</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fas fa-hands-helping"></i>Помощь</a></li>
+            <li><a href="#"><i class="far fa-newspaper"></i>Новости</a></a></li>
+            <li><a href="#"><i class="fas fa-atlas"></i>Контакты</a></a></li>
+          </ul>
+        </nav>
+        <div class="bottom-main">
+          <div class="top-bottom-main">Смартфоны</div>
+          <div class="container-bottom-main" id="containerPhonsMain"></div>
         </div>
       </div>
-    </div>
     <div id="snackbarAddProductBasketContainer">Добавлено в корзину</div>
     <footer>
       <div class="footer-box">
         <div class="f-box-1">
           <div class="footer-forvord-text">SATU.KZ</div>
-          <div class="footer-text"><a href="javaHTML.html">Вход/Регистрация</a></div>
+          <div class="footer-text"><a href="#">Вход/Регистрация</a></div>
         </div>
         <div class="f-box-2">
           <div class="footer-forvord-text">Каталог товаров</div>
@@ -93,14 +92,14 @@
         </div>
         <div class="f-box-3">
           <div class="footer-forvord-text">Партнерам</div>
-          <div class="footer-text"><a href="javaHTML.html">Вход в кабинет продавца</a></div>
+          <div class="footer-text"><a href="#">Вход в кабинет продавца</a></div>
           <div class="footer-forvord-text">Документы</div>
-          <div class="footer-text"><a href="javaHTML.html">Пользовательское соглашение</a></div>
-          <div class="footer-text"><a href="javaHTML.html">Договор присоединения</a></div>
+          <div class="footer-text"><a href="#">Пользовательское соглашение</a></div>
+          <div class="footer-text"><a href="#">Договор присоединения</a></div>
         </div>
         <div class="f-box-4">
           <div class="footer-forvord-text">Помощь и контакты</div>
-          <div class="footer-text"><a href="javaHTML.html">help_shop@satu.kz</a></div>
+          <div class="footer-text"><a href="#">help_shop@satu.kz</a></div>
         </div>
       </div>
       <div class="footer-copyright">© ТОО «SATU.KZ Магазин», 2019</div>

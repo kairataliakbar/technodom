@@ -180,6 +180,10 @@ header {
   box-shadow: 1px 5px 15px -5px black;
 }
 
+li {
+  cursor: pointer;
+}
+
 .menu ul li:first-child {
   border-left: 1px solid rgb(145, 97, 9);
 }
@@ -351,6 +355,7 @@ button {
   border-radius: 3px;
   font-family: serif;
   transition-duration: 100ms;
+  cursor: pointer;
 }
 
 button:hover {
@@ -565,6 +570,17 @@ button:hover {
   font-family: sans-serif;
   padding: 8px;
   margin-right: 5px;
+}
+
+.button-container button a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 0 10px 0;
+}
+
+.button-container button a:hover {
+  color: white;
+  transition-duration: 100ms;
 }
 
 .button-tc {
