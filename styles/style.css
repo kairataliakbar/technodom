@@ -235,6 +235,7 @@ li {
 .container-bottom-main {
   display: flex;
   justify-content: center;
+  align-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -252,10 +253,11 @@ li {
 }
 
 .forvord-container-img {
-  width: 235px;
+  width: 220px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .forvord-container-img img {
@@ -890,6 +892,45 @@ button:hover {
   to {bottom: 0; opacity: 0;}
 }
 
+.container-bottom {
+  display: flex;
+  flex-direction: row;
+}
 
+.filter-main {
+  background-color: #ececec;
+  margin-right: 10px;
+  width: 205px;
+  min-width: 199px;
+  height: 410px;
+  border-radius: 5px;
+  padding: 18px;
+}
 
+.title-filter {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.product-filter {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 3px;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+}
+
+.product-filter option {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.price-product-filter {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 3px;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+}
 

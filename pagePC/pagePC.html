@@ -70,7 +70,59 @@
         </nav>
         <div class="bottom-main">
           <div class="top-bottom-main">Компьютеры</div>
-          <div class="container-bottom-main" id="containerPCMain"></div>
+          <div class="container-bottom">
+              <div class="filter-main">
+                <div class="title-filter">ФИЛЬТРЫ</div>
+                <form>
+                  <p class="title-filter">Цена</p>
+                  <p><span>от - </span><input type="number" min="1" max="1000000" value="0" class="price-product-filter" id="priceMinFilter"></p>
+                  <p><span>до - </span><input type="number" min="1" max="1000000" value="1000000" class="price-product-filter" id="priceMaxFilter"></p>
+                  <p class="title-filter">Производитель</p>
+                  <p>
+                    <select name="productManufacturerFilter" class="product-filter" id="manufacturerFilter">
+                      <option disabled selected>Mодель</option>
+                      <option value="apple">Apple</option>
+                      <option value="samsung">Samsung</option>
+                      <option value="htc">HTC</option>
+                      <option value="huawei">Huawei</option>
+                      <option value="xiaomi">Xiaomi</option>
+                      <option value="lg">LG</option>
+                      <option value="lenova">Lenova</option>
+                      <option value="sony">Sony</option>
+                      <option value="meizu">Meizu</option>
+                      <option value="oppo">OPPO</option>
+                    </select>
+                  </p>
+                  <p class="title-filter">Цвет</p>
+                  <p>
+                    <select name="color" class="product-filter" id="colorFilter">
+                      <option disabled selected>Цвет</option>
+                      <option value="black">Черный</option>
+                      <option value="white">Белый</option>
+                      <option value="gold">Золотой</option>
+                      <option value="yellow">Желтый</option>
+                      <option value="green">Зеленый</option>
+                      <option value="blue">Синий</option>
+                      <option value="brown">Коричневый</option>
+                    </select>
+                  </p>
+                  <p class="title-filter">Год</p>
+                  <p>
+                    <select name="data" class="product-filter" id="dataFilter">
+                      <option disabled selected>Год</option>
+                      <option value="2014">2014</option>
+                      <option value="2015">2015</option>
+                      <option value="2016">2016</option>
+                      <option value="2017">2017</option>
+                      <option value="2018">2018</option>
+                      <option value="2019">2019</option>
+                    </select>
+                  </p>
+                  <button onclick="onFilter()">Покозать</button>
+                </form>
+              </div>
+            <div class="container-bottom-main" id="containerPCMain"></div>
+          </div>
         </div>
       </div>
     <div id="snackbarAddProductBasketContainer">Добавлено в корзину</div>

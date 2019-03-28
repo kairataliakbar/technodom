@@ -581,3 +581,26 @@ function productPageProducts(codProduct) {
     }
   }
 }
+
+function onFilter() {
+  var minPricesFilter = document.getElementById("priceMinFilter").value;
+  var maxPricesFilter = document.getElementById("priceMaxFilter").value;
+  var modelFilter = document.getElementById("manufacturerFilter").value;
+  var colorFilter = document.getElementById("colorFilter").value;
+  var dataFilter = document.getElementById("dataFilter").value;
+
+  localStorage.setItem("minPricesFilter", minPricesFilter);
+  localStorage.setItem("maxPricesFilter", maxPricesFilter);
+  localStorage.setItem("modelFilter", modelFilter);
+  localStorage.setItem("colorFilter", colorFilter);
+  localStorage.setItem("dataFilter", dataFilter);
+
+  debugger;
+  if(document.getElementById("containerPCMain") !== null) {
+    var pc = "pc";
+    onloadPCPage(pc);
+  }if(document.getElementById("containerPhonsMain") !== null) {
+    var phone = "phon";
+    onloadPhonePage(phone);
+  }
+}
