@@ -618,6 +618,17 @@ button:hover {
   height: 540px;
 }
 
+@media all and (max-width: 1000px) {
+  .container-product{
+    flex-direction: column;
+  } 
+
+  #productImageId {
+    width: 100%;
+    height: 80%;
+  }
+}
+
 .right-container-product {
   display: flex;
   flex-direction: column;
