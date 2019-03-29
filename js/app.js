@@ -216,6 +216,9 @@ function newAnnouncement() {
     var pricesProduct = document.getElementById("pricesText").value;
     var textArea = document.getElementById("textArea").value;
     var imgSrc = document.getElementById("result").src;
+    var modelProduct = document.getElementById("modelTitleContainer").value;
+    var colorProduct = document.getElementById("colorTitleContainer").value;
+    var dataProduct = document.getElementById("dataTitleContainer").value;
     
     var announcement = {
       announcementHeadline: headline,
@@ -223,7 +226,10 @@ function newAnnouncement() {
       announcementHeading: heading,
       announcementPricesProduct: pricesProduct,
       announcementTextArea: textArea,
-      announcementImgSrc: imgSrc
+      announcementImgSrc: imgSrc,
+      announcementModel: modelProduct,
+      announcementColor: colorProduct,
+      announcementData: dataProduct
     };
   
     array = JSON.parse(localStorage.getItem("array"));
@@ -320,6 +326,9 @@ function onloadValueAnnouncement() {
     document.getElementById("pricesText").value = product.announcementPricesProduct;
     document.getElementById("textArea").value = product.announcementTextArea;
     document.getElementById("result").src = product.announcementImgSrc;
+    document.getElementById("modelTitleContainer").value = product.announcementModel;
+    document.getElementById("colorTitleContainer").value = product.announcementColor;
+    document.getElementById("dataTitleContainer").value = product.announcementData;
   }
 }
 
@@ -402,11 +411,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if(localStorage.getItem("arrayBasket") !== null) {
       for(var i = 0; i < basketArrayProducts.length; i++) {
         var price = basketArrayProducts[i].announcementPricesProduct;
-        var result = "";
-        for(var j = 0; j < price.length; j++) {
-          if(price[j] != " ") {result += price[j]; }
-        }
-        totalPrices += parseInt(result);
+        price = price.replace(/\s/g, '');
+        totalPrices += parseInt(price);
       }  
     }
     document.getElementById("totalPrices").innerHTML = totalPrices + "₸";
@@ -467,100 +473,144 @@ function snackbarAddProductInBasket() {
 
 function onloadPhonePage(productName) {
   var arrayProduct = JSON.parse(localStorage.getItem("array"));
+
+  var minPricesFilter = localStorage.getItem("minPricesFilter");
+  var maxPricesFilter = localStorage.getItem("maxPricesFilter");
+  var modelFilter = localStorage.getItem("modelFilter");
+  var colorFilter = localStorage.getItem("colorFilter");
+  var dataFilter = localStorage.getItem("dataFilter");
+  
   for(var i = 0; i < arrayProduct.length; i++) {
     if(productName === arrayProduct[i].announcementHeading) {
-      var headline = arrayProduct[i].announcementHeadline;
-      var codProduct = arrayProduct[i].announcementCodProduct;
-      var heading = arrayProduct[i].announcementHeading;
-      var pricesProduct = arrayProduct[i].announcementPricesProduct + "₸";
-      var textArea = arrayProduct[i].announcementTextArea;
-      var imgSrc = arrayProduct[i].announcementImgSrc; 
-        
-      var divForvordContainer = document.createElement("div");
-      divForvordContainer.className = "forvord-container";
-      var divForvordContainerImg = document.createElement("div");
-      divForvordContainerImg.className = "forvord-container-img";
-      divForvordContainerImg.count = codProduct;
-      divForvordContainerImg.onclick = function () {
-        productPageProducts(this.count);
-      };
-      var imgForvordContainer = document.createElement("img");
-      imgForvordContainer.src = imgSrc;
-      var divForvordContainerText = document.createElement("div");
-      divForvordContainerText.className = "forvord-container-text";
-      divForvordContainerText.innerHTML = headline;
-      var divForvordContainerButton = document.createElement("div");
-      divForvordContainerButton.className = "forvord-container-button";
-      var divPrices = document.createElement("div");
-      divPrices.className = "summa";
-      divPrices.innerHTML = pricesProduct;
-      var buttonInGarbage = document.createElement("button");
-      buttonInGarbage.innerHTML = "В корзину";
-      buttonInGarbage.count = codProduct;
-      buttonInGarbage.onclick = function () {
-        addBasket(this.count);
-      };
-      var button = document.createElement("button");
-      button.innerHTML = "Купить в кредит";
+      var prices = arrayProduct[i].announcementPricesProduct;
+      prices = prices.replace(/\s/g, '');
+      if(parseInt(minPricesFilter) <= parseInt(prices) || minPricesFilter == null) {
+        if(parseInt(maxPricesFilter) >= parseInt(prices) || maxPricesFilter == null) {
+          if(colorFilter == arrayProduct[i].announcementColor || colorFilter == "Цвет" || colorFilter == null) {
+            if(dataFilter == arrayProduct[i].announcementData || dataFilter == "Год" || dataFilter == null) {
+              if(modelFilter == arrayProduct[i].announcementModel ^ modelFilter == "Mодель" || modelFilter == null) {
+                var headline = arrayProduct[i].announcementHeadline;
+                var codProduct = arrayProduct[i].announcementCodProduct;
+                var heading = arrayProduct[i].announcementHeading;
+                var pricesProduct = arrayProduct[i].announcementPricesProduct + "₸";
+                var textArea = arrayProduct[i].announcementTextArea;
+                var imgSrc = arrayProduct[i].announcementImgSrc; 
+                  
+                var divForvordContainer = document.createElement("div");
+                divForvordContainer.className = "forvord-container";
+                var divForvordContainerImg = document.createElement("div");
+                divForvordContainerImg.className = "forvord-container-img";
+                divForvordContainerImg.count = codProduct;
+                divForvordContainerImg.onclick = function () {
+                  productPageProducts(this.count);
+                };
+                var imgForvordContainer = document.createElement("img");
+                imgForvordContainer.src = imgSrc;
+                var divForvordContainerText = document.createElement("div");
+                divForvordContainerText.className = "forvord-container-text";
+                divForvordContainerText.innerHTML = headline;
+                var divForvordContainerButton = document.createElement("div");
+                divForvordContainerButton.className = "forvord-container-button";
+                var divPrices = document.createElement("div");
+                divPrices.className = "summa";
+                divPrices.innerHTML = pricesProduct;
+                var buttonInGarbage = document.createElement("button");
+                buttonInGarbage.innerHTML = "В корзину";
+                buttonInGarbage.count = codProduct;
+                buttonInGarbage.onclick = function () {
+                  addBasket(this.count);
+                };
+                var button = document.createElement("button");
+                button.innerHTML = "Купить в кредит";
 
-      containerPhonsMain.appendChild(divForvordContainer);
-      divForvordContainer.appendChild(divForvordContainerImg);
-      divForvordContainerImg.appendChild(imgForvordContainer);
-      divForvordContainerImg.appendChild(divForvordContainerText);
-      divForvordContainer.appendChild(divForvordContainerButton);
-      divForvordContainerButton.appendChild(divPrices);
-      divForvordContainerButton.appendChild(buttonInGarbage);
-      divForvordContainerButton.appendChild(button);
+                containerPhonsMain.appendChild(divForvordContainer);
+                divForvordContainer.appendChild(divForvordContainerImg);
+                divForvordContainerImg.appendChild(imgForvordContainer);
+                divForvordContainerImg.appendChild(divForvordContainerText);
+                divForvordContainer.appendChild(divForvordContainerButton);
+                divForvordContainerButton.appendChild(divPrices);
+                divForvordContainerButton.appendChild(buttonInGarbage);
+                divForvordContainerButton.appendChild(button);
+                
+                localStorage.removeItem("minPricesFilter");
+                localStorage.removeItem("maxPricesFilter");
+                localStorage.removeItem("modelFilter");
+                localStorage.removeItem("colorFilter");
+                localStorage.removeItem("dataFilter");
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
 function onloadPCPage(productName) {
   var arrayProduct = JSON.parse(localStorage.getItem("array"));
+
+  var minPricesFilter = localStorage.getItem("minPricesFilter");
+  var maxPricesFilter = localStorage.getItem("maxPricesFilter");
+  var modelFilter = localStorage.getItem("modelFilter");
+  var colorFilter = localStorage.getItem("colorFilter");
+  var dataFilter = localStorage.getItem("dataFilter");
+
   for(var i = 0; i < arrayProduct.length; i++) {
     if(productName === arrayProduct[i].announcementHeading) {
-      var headline = arrayProduct[i].announcementHeadline;
-      var codProduct = arrayProduct[i].announcementCodProduct;
-      var heading = arrayProduct[i].announcementHeading;
-      var pricesProduct = arrayProduct[i].announcementPricesProduct + "₸";
-      var textArea = arrayProduct[i].announcementTextArea;
-      var imgSrc = arrayProduct[i].announcementImgSrc; 
-        
-      var divForvordContainer = document.createElement("div");
-      divForvordContainer.className = "forvord-container";
-      var divForvordContainerImg = document.createElement("div");
-      divForvordContainerImg.className = "forvord-container-img";
-      divForvordContainerImg.count = codProduct;
-      divForvordContainerImg.onclick = function () {
-        productPageProducts(this.count);
-      };
-      var imgForvordContainer = document.createElement("img");
-      imgForvordContainer.src = imgSrc;
-      var divForvordContainerText = document.createElement("div");
-      divForvordContainerText.className = "forvord-container-text";
-      divForvordContainerText.innerHTML = headline;
-      var divForvordContainerButton = document.createElement("div");
-      divForvordContainerButton.className = "forvord-container-button";
-      var divPrices = document.createElement("div");
-      divPrices.className = "summa";
-      divPrices.innerHTML = pricesProduct;
-      var buttonInGarbage = document.createElement("button");
-      buttonInGarbage.innerHTML = "В корзину";
-      buttonInGarbage.count = codProduct;
-      buttonInGarbage.onclick = function () {
-        addBasket(this.count);
-      };
-      var button = document.createElement("button");
-      button.innerHTML = "Купить в кредит";
+      var prices = arrayProduct[i].announcementPricesProduct;
+      prices = prices.replace(/\s/g, '');
+      if(parseInt(minPricesFilter) <= parseInt(prices) || minPricesFilter == null) {
+        if(parseInt(maxPricesFilter) >= parseInt(prices) || maxPricesFilter == null) {
+          if(colorFilter == arrayProduct[i].announcementColor || colorFilter == "Цвет" || colorFilter == null) {
+            if(dataFilter == arrayProduct[i].announcementData || dataFilter == "Год" || dataFilter == null) {
+              if(modelFilter == arrayProduct[i].announcementModel ^ modelFilter == "Mодель" || modelFilter == null) {
+                var headline = arrayProduct[i].announcementHeadline;
+                var codProduct = arrayProduct[i].announcementCodProduct;
+                var heading = arrayProduct[i].announcementHeading;
+                var pricesProduct = arrayProduct[i].announcementPricesProduct + "₸";
+                var textArea = arrayProduct[i].announcementTextArea;
+                var imgSrc = arrayProduct[i].announcementImgSrc; 
+                  
+                var divForvordContainer = document.createElement("div");
+                divForvordContainer.className = "forvord-container";
+                var divForvordContainerImg = document.createElement("div");
+                divForvordContainerImg.className = "forvord-container-img";
+                divForvordContainerImg.count = codProduct;
+                divForvordContainerImg.onclick = function () {
+                  productPageProducts(this.count);
+                };
+                var imgForvordContainer = document.createElement("img");
+                imgForvordContainer.src = imgSrc;
+                var divForvordContainerText = document.createElement("div");
+                divForvordContainerText.className = "forvord-container-text";
+                divForvordContainerText.innerHTML = headline;
+                var divForvordContainerButton = document.createElement("div");
+                divForvordContainerButton.className = "forvord-container-button";
+                var divPrices = document.createElement("div");
+                divPrices.className = "summa";
+                divPrices.innerHTML = pricesProduct;
+                var buttonInGarbage = document.createElement("button");
+                buttonInGarbage.innerHTML = "В корзину";
+                buttonInGarbage.count = codProduct;
+                buttonInGarbage.onclick = function () {
+                  addBasket(this.count);
+                };
+                var button = document.createElement("button");
+                button.innerHTML = "Купить в кредит";
 
-      containerPCMain.appendChild(divForvordContainer);
-      divForvordContainer.appendChild(divForvordContainerImg);
-      divForvordContainerImg.appendChild(imgForvordContainer);
-      divForvordContainerImg.appendChild(divForvordContainerText);
-      divForvordContainer.appendChild(divForvordContainerButton);
-      divForvordContainerButton.appendChild(divPrices);
-      divForvordContainerButton.appendChild(buttonInGarbage);
-      divForvordContainerButton.appendChild(button);
+                containerPCMain.appendChild(divForvordContainer);
+                divForvordContainer.appendChild(divForvordContainerImg);
+                divForvordContainerImg.appendChild(imgForvordContainer);
+                divForvordContainerImg.appendChild(divForvordContainerText);
+                divForvordContainer.appendChild(divForvordContainerButton);
+                divForvordContainerButton.appendChild(divPrices);
+                divForvordContainerButton.appendChild(buttonInGarbage);
+                divForvordContainerButton.appendChild(button);
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -594,13 +644,4 @@ function onFilter() {
   localStorage.setItem("modelFilter", modelFilter);
   localStorage.setItem("colorFilter", colorFilter);
   localStorage.setItem("dataFilter", dataFilter);
-
-  debugger;
-  if(document.getElementById("containerPCMain") !== null) {
-    var pc = "pc";
-    onloadPCPage(pc);
-  }if(document.getElementById("containerPhonsMain") !== null) {
-    var phone = "phon";
-    onloadPhonePage(phone);
-  }
 }
