@@ -532,11 +532,6 @@ function onloadPhonePage(productName) {
                 divForvordContainerButton.appendChild(buttonInGarbage);
                 divForvordContainerButton.appendChild(button);
                 
-                localStorage.removeItem("minPricesFilter");
-                localStorage.removeItem("maxPricesFilter");
-                localStorage.removeItem("modelFilter");
-                localStorage.removeItem("colorFilter");
-                localStorage.removeItem("dataFilter");
               }
             }
           }
@@ -544,6 +539,11 @@ function onloadPhonePage(productName) {
       }
     }
   }
+  localStorage.removeItem("minPricesFilter");
+  localStorage.removeItem("maxPricesFilter");
+  localStorage.removeItem("modelFilter");
+  localStorage.removeItem("colorFilter");
+  localStorage.removeItem("dataFilter");
 }
 
 function onloadPCPage(productName) {
@@ -606,6 +606,7 @@ function onloadPCPage(productName) {
                 divForvordContainerButton.appendChild(divPrices);
                 divForvordContainerButton.appendChild(buttonInGarbage);
                 divForvordContainerButton.appendChild(button);
+
               }
             }
           }
@@ -613,6 +614,11 @@ function onloadPCPage(productName) {
       }
     }
   }
+  localStorage.removeItem("minPricesFilter");
+  localStorage.removeItem("maxPricesFilter");
+  localStorage.removeItem("modelFilter");
+  localStorage.removeItem("colorFilter");
+  localStorage.removeItem("dataFilter");
 }
 
 function productPageProducts(codProduct) {
