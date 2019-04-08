@@ -1,4 +1,5 @@
 array = [];
+slideIndex = 1;
 
 window.onload = function windowOnload() {
   if(localStorage.getItem('loginEntry') !== null) {
@@ -24,6 +25,8 @@ window.onload = function windowOnload() {
   }if(document.getElementById("containerPCMain") !== null) {
     var pc = "pc";
     onloadPCPage(pc);
+  }if(document.getElementsByClassName("slider") !== null) {
+    showSlides(slideIndex);
   }
 }
 
@@ -650,4 +653,28 @@ function onFilter() {
   localStorage.setItem("modelFilter", modelFilter);
   localStorage.setItem("colorFilter", colorFilter);
   localStorage.setItem("dataFilter", dataFilter);
+}
+
+function nextSlider(n) {
+  showSlides(slideIndex += n);
+}
+
+function dotNextSlider(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slider-container");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" activ-dot", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " activ-dot";
 }
